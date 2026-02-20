@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio portfolio · umanistico PCTO</title>
+    <!-- Font e icone (Font Awesome per icone dinamiche) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #f4f1eb;  /* fondo caldo neutro */
+            color: #2c2b28;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* palette accenti */
+        :root {
+            --accento: #8b6b4d;      /* bordeaux/terra */
+            --chiaro: #faf7f2;
+            --scuro: #2c2b28;
+            --grigio: #e2ddd5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header fisso con navigazione */
+        header {
+            background: var(--scuro);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--grigio);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-left: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-weight: 400;
+            transition: 0.2s;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover, nav a:focus {
+            color: white;
+            border-bottom-color: var(--accento);
+        }
+
+        /* bottone condividi */
+        .share-btn {
+            background: var(--accento);
+            border: none;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            border: 1px solid transparent;
+        }
+
+        .share-btn:hover {
+            background: #735a42;
+            transform: scale(1.02);
+        }
+
+        /* sezioni generali */
+        section {
+            background: var(--chiaro);
+            margin: 2rem 0;
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            transition: 0.3s;
+            border: 1px solid #e9e1d6;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            border-left: 10px solid var(--accento);
+            padding-left: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1.5rem 0 1rem;
+            color: #3e3a35;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.8rem 1.5rem;
+            border-radius: 24px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+            border: 1px solid #f0eae2;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 28px rgba(0,0,0,0.05);
+            border-color: var(--accento);
+        }
+
+        .icon {
+            font-size: 2.4rem;
+            color: var(--accento);
+            margin-bottom: 0.8rem;
+        }
+
+        .tag {
+            background: var(--grigio);
+            color: #3d352e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+            letter-spacing: 0.4px;
+        }
+
+        .citazione {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #5f5549;
+            border-left: 3px solid var(--accento);
+            padding-left: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        .btn-cv {
+            background: transparent;
+            border: 2px solid var(--accento);
+            color: var(--accento);
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+
+        .btn-cv:hover {
+            background: var(--accento);
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem;
+            color: #5f5a54;
+            font-size: 0.95rem;
+            border-top: 1px solid #dad3ca;
+        }
+
+        .contatti i {
+            margin: 0 10px;
+            color: var(--accento);
+            font-size: 1.4rem;
+        }
+
+        /* dinamicità: pulsante copia link */
+        #linkFeedback {
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            color: #b5aa9a;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            header .container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="#">Matteo Nitrati <span>· portfolio umanistico</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#autobiografia">Autobiografia</a></li>
+                <li><a href="#umanistica">Umanistica</a></li>
+                <li><a href="#pcto">PCTO</a></li>
+                <li><a href="#civica">Educ. civica</a></li>
+                <li><a href="#professionale">Professionale</a></li>
+            </ul>
+        </nav>
+        <button class="share-btn" id="shareLinkBtn"><i class="fas fa-share-alt"></i> Condividi portfolio</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- INTRO AUTOBIOGRAFICA (sezione 1) -->
+    <section id="autobiografia">
+        <h2>📖 1. Autobiografia · Chi sono</h2>
+        <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+            <div style="flex: 1 1 250px; text-align: center;">
+                <div style="background: #dad3ca; width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; border: 6px solid white; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+                    <i class="fas fa-user-graduate" style="font-size: 6rem; color: #735a42;"></i>
+                </div>
+            </div>
+            <div style="flex: 3 1 400px;">
+                <p style="font-size: 1.5rem; font-weight: 300;">Alessia, 19 anni · <span style="color: var(--accento);">Matteo</span></p>
+                <p class="citazione">“Non esiste competenza senza passione, né cittadinanza senza coscienza.”</p>
+                <p><strong>Le mie 2 tappe:</strong> 🏛️ Istituto Tecnico: la scoperta del mondo informatico· 🌍 volontariato e atleta. Tre aggettivi: <span class="tag">CURIOSO</span> <span class="tag">EMPATICO</span> <span class="tag">DETERMINATO</span>. Mi emoziona ancora l'odore della carta stampata e discutere di filosofia davanti a un caffè.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AREA UMANISTICA -->
+    <section id="umanistica">
+        <h2>🏛️ 2. Area umanistica · le radici</h2>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-feather-alt icon"></i>
+                <h3>Italiano</h3>
+                <p>Analisi del testo, scrittura argomentativa, produzione di articoli e temi. Il mio elaborato migliore: <em>“Tema sul bullismo affrontatpo in 2”</em>.</p>
+                <!-- <span class="tag">📄 PDF visualizzabile</span> -->
+            </div>
+            <div class="card">
+                <i class="fas fa-scroll icon"></i>
+                <h3>Storia</h3>
+                <p>Collegare passato e presente: mappa concettuale sul ‘900 e le migrazioni. “Il fascismo e la società di oggi” – saggio breve.</p>
+                <span class="tag">🗺️ mappa interattiva</span>
+            </div>
+            <!-- <div class="card">
+                <i class="fas fa-brain icon"></i>
+                <h3>Filosofia · antichistica</h3>
+                <p>Il mio filosofo: Hannah Arendt. “La banalità del male e la responsabilità personale” – podcast di 5 min.</p>
+                <span class="tag">🎧 ascolta</span>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- PCTO -->
+    <section id="pcto">
+        <h2>💼 3. PCTO · esperienze sul campo</h2>
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div style="background: white; border-radius: 24px; padding: 2rem;">
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <i class="fas fa-briefcase" style="font-size: 3rem; color: var(--accento);"></i>
+                    <div>
+                        <h3>Informatica ed automazione. LOCCIONI</h3>
+                        <p><strong>Competenze:</strong> Progettare da zero insieme ad latri miei compagni una macchina per testing e composizione di pacchi batteria</p>
+                        <span class="tag">soft skills: teamwork, affidabilità</span>
+                        <span class="tag">hard skills: compilazione in c#</span>
+                    </div>
+                </div>
+                <!-- foto simulata -->
+                <div style="background: #eae3db; padding: 1rem; border-radius: 20px; margin-top: 1.5rem; color: #5b4f43;">
+                    <i class="fas fa-image"></i> 📸 [foto dell’esperienza: banco archivio con faldoni]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCAZIONE CIVICA -->
+    <section id="civica">
+        <h2>🌱 4. Educazione civica · cittadina consapevole</h2>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-gavel icon"></i>
+                <h3>Temi</h3>
+                <p>Intelligenza artificiale e non solo...</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt icon"></i>
+                <h3>Intelligenza artificiale</h3>
+                <p>Progetto all'educazione dell'uso della AI <em></em></p>
+                <span class="tag">presentazioni</span>
+            </div>
+            <!-- <div class="card">
+                <i class="fas fa-leaf icon"></i>
+                <h3>Sostenibilità · agenda 2030</h3>
+                <p>Partecipazione al comitato “Rifiuti Zero” a scuola. Report con proposte per ridurre la plastica in mensa.</p>
+            </div> -->
+        </div>
+        <!-- <div class="citazione">“La libertà è partecipazione” (Gaber) – questo significa per me educazione civica: non solo studio, ma azione.</div> -->
+    </section>
+
+    AREA PROFESSIONALE (con CV e futuro)
+    <!-- <section id="professionale"> -->
+        <!-- <h2>🔮 5. Area professionale · il mio futuro</h2> -->
+        <!-- <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;"> -->
+            <!-- <div style="background: white; border-radius: 24px; padding: 2rem;"> -->
+                <!-- <i class="fas fa-bullseye" style="font-size: 2rem; color: var(--accento);"></i> -->
+                <!-- <h3>Obiettivi</h3> -->
+                <!-- <p>Desidero lavorare nell'editoria o nella comunicazione culturale. Le competenze umanistiche (pensiero critico, scrittura, interpretazione) sono la mia marcia in più.</p> -->
+                <!-- <p><strong>Settori:</strong> editoria, ufficio stampa, risorse umane (selezione del personale).</p> -->
+            <!-- </div> -->
+            <!-- <div style="background: white; border-radius: 24px; padding: 2rem;"> -->
+                <!-- <i class="fas fa-file-alt icon"></i> -->
+                <!-- <h3>CV sintetico</h3> -->
+                <!-- <p><i class="fas fa-check-circle" style="color: var(--accento);"></i> Diploma Liceo Classico · 95/100<br> -->
+                   <!-- <i class="fas fa-check-circle" style="color: var(--accento);"></i> Inglese B2, Spagnolo A2<br> -->
+                   <!-- <i class="fas fa-check-circle" style="color: var(--accento);"></i> Pacchetto Office, gestione social, Canva<br> -->
+                   <!-- <i class="fas fa-check-circle" style="color: var(--accento);"></i> Volontaria biblioteca popolare</p> -->
+                <!-- <button class="btn-cv" id="scaricaCV"><i class="fas fa-download"></i> Scarica CV (PDF simulato)</button> -->
+            <!-- </div> -->
+        <!-- </div> -->
+        Contatti professionali
+        <div style="margin-top: 2rem; background: #eae3db; border-radius: 60px; padding: 1.5rem; text-align: center;"> 
+            <p><i class="fas fa-envelope" style="color: var(--accento);"></i>  anitratimatteo@gmail.com   ·   <i class="fab fa-linkedin" style="color: var(--accento);"></i> nitrati matteo </p> 
+     </div> 
+    </section>
+
+    <!-- Sezione perché l’ho fatto (conclusione) -->
+    <section style="background: #e7dfd6;">
+        <h2>✨ Perché questo portfolio?</h2>
+        <div style="display: flex; gap: 1.8rem; flex-wrap: wrap; justify-content: space-evenly;">
+            <div style="flex:1; min-width:200px;"><i class="fas fa-star icon"></i> <strong>Esame</strong> <br>presentarmi con chiarezza e originalità</div>
+            <div style="flex:1; min-width:200px;"><i class="fas fa-code icon"></i> <strong>Linguaggi</strong> <br>testo, immagini, icone, grafica digitale</div>
+            <div style="flex:1; min-width:200px;"><i class="fas fa-briefcase icon"></i> <strong>Futuro</strong> <br>biglietto da visita vivo e dinamico</div>
+        </div>
+        <p style="text-align: center; margin: 2rem 0 0; font-size: 1.2rem;">“Un curriculum dice cosa hai fatto, il portfolio chi sei.”</p>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Nitrati Matteo — portfolio realizzato per l’esame di Stato e condivisione professionale</p>
+    <div class="contatti">
+        <i class="fas fa-share-alt"></i> condividi questo link
+    </div>
+    <p id="linkFeedback" style="margin-top: 0.5rem;"></p>
+</footer>
+
+<!-- SCRIPT PER DINAMICITÀ E CONDIVISIONE LINK -->
+<script>
+    (function() {
+        // 1. Pulsante condividi link - copia l'URL negli appunti
+        const shareBtn = document.getElementById('shareLinkBtn');
+        const feedbackSpan = document.getElementById('linkFeedback');
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            } else {
+                // fallback per browser vecchi
+                let textArea = document.createElement("textarea");
+                textArea.value = text;
+                textArea.style.position = "fixed";
+                textArea.style.left = "-999999px";
+                textArea.style.top = "-999999px";
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                return new Promise((resolve, reject) => {
+                    try {
+                        document.execCommand('copy') ? resolve() : reject();
+                    } catch (err) { reject(err); }
+                    textArea.remove();
+                });
+            }
+        }
+
+        shareBtn.addEventListener('click', function() {
+            const urlCorrente = window.location.href;
+            copyToClipboard(urlCorrente)
+                .then(() => {
+                    feedbackSpan.textContent = '✅ Link copiato negli appunti!';
+                    shareBtn.style.backgroundColor = '#5f7b6e'; // cambio temporaneo
+                    setTimeout(() => {
+                        feedbackSpan.textContent = '';
+                        shareBtn.style.backgroundColor = 'var(--accento)';
+                    }, 2500);
+                })
+                .catch(() => {
+                    feedbackSpan.textContent = '❌ errore, copia manuale';
+                });
+        });
+
+        // 2. Pulsante CV simulato (scarica PDF fittizio)
+        document.getElementById('scaricaCV').addEventListener('click', function(e) {
+            e.preventDefault();
+            // simula download generando un blob di esempio
+            const element = document.createElement('a');
+            const file = new Blob(
+                ["ALESSIA FIORILLO - CURRICULUM VITAE\n\nISTRUZIONE: Liceo Classico ...\nESPERIENZE: PCTO archivio, volontaria\nCOMPETENZE: ... (file generato dal portfolio)"],
+                {type: 'text/plain'}
+            );
+            element.href = URL.createObjectURL(file);
+            element.download = 'CV_Alessia_Fiorillo.txt';
+            document.body.appendChild(element); // necessario per Firefox
+            element.click();
+            document.body.removeChild(element);
+            // feedback
+            alert('📄 CV scaricato (versione dimostrativa .txt)');
+        });
+
+        // 3. Aggiunge un po' di dinamismo: scroll fluido già attivo via css, 
+        //    e un highlight per le card se si arriva da un link interno
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.style.transition = 'box-shadow 0.2s';
+                    entry.target.style.boxShadow = '0 0 0 3px rgba(139,107,77,0.2)';
+                    setTimeout(() => {
+                        entry.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.02)';
+                    }, 600);
+                }
+            });
+        }, {threshold: 0.2});
+        sections.forEach(s => observer.observe(s));
+    })();
+</script>
+
+<!-- Nota: per condivisione effettiva è sufficiente inviare il link a questa pagina.
+     Se ospitato online (GitHub Pages, Netlify) il link è già condivisibile. -->
+</body>
+</html>
