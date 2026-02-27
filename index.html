@@ -135,101 +135,234 @@
 
         .card-grid {
             display: grid;
-            <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-            <style>
-                /* DESIGN VARS - update these to change site look */
-                :root{
-                    --bg-1: #071022;
-                    --bg-2: #0f1b2b;
-                    --accent: #00ffd5; /* neon cyan */
-                    --muted: rgba(255,255,255,0.06);
-                    --card-bg: rgba(255,255,255,0.03);
-                    --radius: 12px;
-                    --gap: 1.2rem;
-                }
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
 
-                *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',system-ui,Arial,sans-serif}
-                html,body{height:100%}
-                body{
-                    background: radial-gradient(1200px 600px at 10% 10%, rgba(0,255,213,0.04), transparent), linear-gradient(135deg,var(--bg-1),var(--bg-2));
-                    color: #dceff3;
-                    line-height:1.6;
-                    -webkit-font-smoothing:antialiased;
-                    scroll-behavior:smooth;
-                    padding-bottom:3rem;
-                }
+        .card {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: none;
+            border: 1px solid var(--grigio);
+        }
 
-                .container{max-width:1200px;margin:0 auto;padding:2rem}
+        .card:hover {
+            transform: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            border-color: var(--accento);
+        }
 
-                header{position:sticky;top:16px;z-index:40;margin:0.5rem 0;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border-radius:calc(var(--radius) + 4px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.04)}
-                header .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.8rem 1rem}
-                .logo a{color:var(--accent);text-decoration:none;font-weight:700;font-size:1.25rem;letter-spacing:0.4px}
-                .logo span{color:rgba(255,255,255,0.6);font-weight:400;font-size:0.95rem;margin-left:8px}
+        .icon {
+            display: none; /* rimuove icone decorative per look istituzionale */
+        }
 
-                nav ul{display:flex;gap:1rem;list-style:none}
-                nav a{color:rgba(255,255,255,0.7);text-decoration:none;padding:0.5rem 0;border-radius:6px;font-weight:600}
-                nav a:hover{color:var(--accent);background:rgba(0,0,0,0.15)}
+        /* link card overrides */
+        .card-link { display: block; text-decoration: none; color: inherit; }
+        .card-link .card-icon { color: var(--accento); margin-bottom: 0.8rem; display: inline-block; }
 
-                .share-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.8);padding:0.4rem 0.9rem;border-radius:8px;cursor:pointer}
-                .share-btn:hover{border-color:var(--accent);color:var(--accent)}
+        .tag {
+            background: var(--grigio);
+            color: var(--scuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0;
+            letter-spacing: 0.4px;
+        }
 
-                /* sections */
-                section{background:var(--card-bg);border:1px solid rgba(255,255,255,0.04);padding:1.6rem;border-radius:var(--radius);margin:1.6rem 0}
-                h2{font-size:1.8rem;color:var(--accent);margin-bottom:1rem;padding-left:0}
-                h3{color:#eaf8f4;font-size:1.1rem;margin:0.6rem 0}
+        .citazione {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #555555;
+            border-left: 3px solid var(--accento);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
 
-                .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap);margin-top:1rem}
-                .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:1.25rem;border-radius:10px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(2,6,23,0.6);transition:transform 280ms ease, box-shadow 280ms ease}
-                .card:hover{transform:translateY(-8px) scale(1.01);box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+        /* removed CV button - styles no longer needed */
+        .btn-cv { display: none; }
 
-                .card svg{width:48px;height:48px;margin-bottom:0.6rem;color:var(--accent);display:block}
-                .card p{color:rgba(230,245,250,0.9);font-size:0.96rem}
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem;
+            color: #5f5a54;
+            font-size: 0.95rem;
+            border-top: 1px solid #dad3ca;
+        }
 
-                /* linked card look */
-                .card-link{display:block;text-decoration:none;color:inherit}
+        .contatti i {
+            display: none; /* icone contatto nascoste per formalità */
+        }
 
-                /* hero/profile */
-                .profile-svg{width:120px;height:120px;color:var(--accent);}
+        /* dinamicità: pulsante copia link */
+        #linkFeedback {
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            color: var(--accento);
+        }
 
-                /* small screen tweaks */
-                @media (max-width:800px){header .container{flex-direction:column;align-items:flex-start} .card-grid{grid-template-columns:1fr}}
+        /* responsive */
+        @media (max-width: 700px) {
+            header .container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
 
-                /* screen transitions */
-                .screen{display:none;opacity:0;transition:opacity 320ms ease}
-                .screen.active{display:block;opacity:1}
-            </style>
+        /* schermate dinamiche */
+        .screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .screen.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="#">Matteo Nitrati <span>· portfolio professionale</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#autobiografia">Autobiografia</a></li>
+                <li><a href="#umanistica">Umanistica</a></li>
+                <li><a href="#pcto">PCTO</a></li>
+                <li><a href="#civica">Ed. civica</a></li>
+                <li><a href="#professionale">Professionale</a></li>
+            </ul>
+        </nav>
+        <!-- inserimento di un popup per vedere che il link è stato copiato -->
+        <button class="share-btn" id="shareLinkBtn">Condividi portfolio</button>
+        <div id="linkFeedback" style="display: none;">Link copiato!</div>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- INTRO AUTOBIOGRAFICA (sezione 1) -->
+    <section id="autobiografia" class="screen active">
+        <h2>1. Autobiografia · Chi sono</h2>
+        <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
+            <div style="flex: 1 1 250px; text-align: center;">
+                <div style="background: #f0f0f0; width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; border: 6px solid white; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+                    <i class="fas fa-user-graduate" style="font-size: 6rem; color: #735a42;"></i>
+                </div>
+            </div>
+            <div style="flex: 3 1 400px;">
+                <p style="font-size: 1.5rem; font-weight: 300;">Matteo, 19 anni · <span style="color: var(--scuro);">studente</span></p>
+                <p class="citazione">“Non esiste competenza senza passione, né cittadinanza senza coscienza.”</p>
+                <p><strong>Le mie 2 tappe:</strong>Chi sono: Studente informatico, volontariato e atleta. </br>
+                    Tre aggettivi: </br>
+                    <span class="tag">CURIOSO</span> <span class="tag">EMPATICO</span> <span class="tag">DETERMINATO</span>. </br>
+                Mi emoziona ancora l'odore della carta stampata e discutere di filosofia davanti a un caffè.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCUOLA -->
+    <section id="umanistica" class="screen">
+        <h2>2. Scuola · le radici</h2>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-feather-alt icon"></i>
+                <h3>Italiano</h3>
+                <p>Analisi testi poetici, produzione testi argomentativi, debate. Il mio elaborato migliore: 
+                    <em>“Tema sul bullismo affrontato in secondo superiore.”</em>.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-scroll icon"></i>
+                <h3>Storia</h3>
+                <p>Collegare passato e presente, imparare dagli errori passati per non ricommetterli nel futuro.</p>
+            </div>
+            <a href="informatica.html" class="card card-link" aria-label="Progetti di Informatica">
+                <div class="card-icon" aria-hidden="true">
+                    <!-- SVG icona codice -->
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                        <path d="M8.5 16.5L3 12l5.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.5 16.5L21 12l-5.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 19H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3>Informatica</h3>
+                <p>Programmazione in C#, HTML, CSS, JavaScript. Progetti di programmazione e sviluppo web.</p>
+            </a>
+            <div class="card">
+                <i class="fas fa-users icon"></i>
+                <h3>Sistemi e reti</h3>
+                <p>Conoscenza delle architetture di rete, gestione di reti locali e connessioni internet, con i dovuti servizi di rete(VPN...).</p>
+        </div>
+    </section>
+
+    <!-- PCTO -->
+    <section id="pcto" class="screen">
+        <h2>3. PCTO · esperienze sul campo</h2>
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <div style="background: white; border-radius: 24px; padding: 2rem;">
+                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                    <i class="fas fa-briefcase" style="font-size: 3rem; color: var(--accento);"></i>
+                    <div>
+                        <h3>Informatica ed automazione. LOCCIONI</h3>
+                        <p><strong>Competenze:</strong> Progettare da zero insieme ad latri miei compagni una macchina per testing e composizione di pacchi batteria</p>
+                        <span class="tag">soft skills: teamwork, affidabilità</span>
+                        <span class="tag">hard skills: coding in C#, HTML, CSS, JavaScript</span>
+                    </div>
+                </div>
+                <!-- foto simulata -->
+                <!-- <div style="background: #eae3db; padding: 1rem; border-radius: 20px; margin-top: 1.5rem; color: #5b4f43;"> -->
+                    <!-- immagine più grande adattata alla form dov'è posizionata -->
+                    <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 16px;">
+                        <img src="https://images.loccioni.com/tmp/tt/0x0x0/media_thumbnail/1758198765_eae67fee43700fc18b00d3d7902824ad.jpg" alt="Foto esperienza PCTO" style="max-width: 100%; max-height: 100%; border-radius: 16px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCAZIONE CIVICA -->
     <section id="civica" class="screen">
         <h2>4. Educazione civica</h2>
         <div class="card-grid">
             <div class="card">
-                <svg class="card-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M14 3l7 7-3 3-7-7 3-3z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M10 14v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-                </svg>
+                <i class="fas fa-gavel icon"></i>
                 <h3>Temi</h3>
                 <p>Intelligenza artificiale come tema scontante negli ultimi due anni, 
                     visto che si sta diffondendo in maniera considerevole</p>
             </div>
             <div class="card">
-                <svg class="card-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M12 2l7 4v5c0 5-3 9-7 11-4-2-7-6-7-11V6l7-4z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <i class="fas fa-shield-alt icon"></i>
                 <h3>Intelligenza artificiale</h3>
                 <p>Progetto all'educazione dell'uso della AI <em></em></p>
                 <!--<span class="tag">presentazioni</span>-->
             </div>
         </div>
- </section> 
+    </section>
+
      AREA PROFESSIONALE (con CV e futuro)
      <section id="professionale" class="screen">
         <h2>5. Area professionale · il mio futuro</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
             <div style="background: white; border-radius: 24px; padding: 2rem;">
-                 <svg class="card-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                     <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4"/>
-                     <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.4"/>
-                     <circle cx="12" cy="12" r="2" stroke="currentColor" stroke-width="1.4"/>
-                 </svg>
+                 <i class="fas fa-bullseye" style="font-size: 2rem; color: var(--accento);"></i>
                  <h3>Obiettivi</h3>
                 <p>Desidero lavorare in un'azienda che mi valorizzasse per cio che so fare e che mi aiutasse nel percorso di crescita formandomi, facendomi fare esperienze anche all'estero, visto che sono un tipo al quale piace molto viaggiare. </p>
                  <p><strong>Settori:</strong> ufficio di programmazione, frontman per le riparazione all'estero e per la manutenzione dei software.</p>
@@ -239,7 +372,8 @@
         <div style="margin-top: 2rem; background: #f0f0f0; border-radius: 8px; padding: 1.5rem; text-align: center;">
             <p>nitratimatteo@gmail.com — nitrati matteo</p>
      </div>
-    </section>  
+    </section> 
+
     <!-- Sezione perché l’ho fatto (conclusione) -->
     <!-- <section style="background: #f9f9f9;">
         <h2>Perché questo portfolio?</h2>
