@@ -244,6 +244,17 @@
                 font-size: 1.8rem;
             }
         }
+
+        /* schermate dinamiche */
+        .screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .screen.active {
+            display: block;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -272,7 +283,7 @@
 <main class="container">
 
     <!-- INTRO AUTOBIOGRAFICA (sezione 1) -->
-    <section id="autobiografia">
+    <section id="autobiografia" class="screen active">
         <h2>1. Autobiografia · Chi sono</h2>
         <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
             <div style="flex: 1 1 250px; text-align: center;">
@@ -292,7 +303,7 @@
     </section>
 
     <!-- AREA UMANISTICA -->
-    <section id="umanistica">
+    <section id="umanistica" class="screen">
         <h2>2. Area umanistica · le radici</h2>
         <div class="card-grid">
             <div class="card">
@@ -317,7 +328,7 @@
     </section>
 
     <!-- PCTO -->
-    <section id="pcto">
+    <section id="pcto" class="screen">
         <h2>3. PCTO · esperienze sul campo</h2>
         <div style="display: flex; flex-direction: column; gap: 2rem;">
             <div style="background: white; border-radius: 24px; padding: 2rem;">
@@ -342,7 +353,7 @@
     </section>
 
     <!-- EDUCAZIONE CIVICA -->
-    <section id="civica">
+    <section id="civica" class="screen">
         <h2>4. Educazione civica</h2>
         <div class="card-grid">
             <div class="card">
@@ -366,7 +377,7 @@
     </section>
 
     AREA PROFESSIONALE (con CV e futuro)
-     <section id="professionale">
+     <section id="professionale" class="screen">
         <h2>5. Area professionale · il mio futuro</h2>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
             <div style="background: white; border-radius: 24px; padding: 2rem;">
@@ -374,15 +385,6 @@
                  <h3>Obiettivi</h3>
                 <p>Desidero lavorare in un'azienda che mi valorizzasse per cio che so fare e che mi aiutasse nel percorso di crescita formandomi, facendomi fare esperienze anche all'estero, visto che sono un tipo al quale piace molto viaggiare. </p>
                  <p><strong>Settori:</strong> ufficio di programmazione, frontman per le riparazione all'estero e per la manutenzione dei software.</p>
-            </div>
-           <div style="background: white; border-radius: 24px; padding: 2rem;">
-                <i class="fas fa-file-alt icon"></i>
-                 <h3>CV sintetico</h3>
-                 <p><i class="fas fa-check-circle" style="color: var(--accento);"></i> Diploma Istituto tecnico · 95/100<br>
-                  <i class="fas fa-check-circle" style="color: var(--accento);"></i> Pacchetto Office, gestione social, Canva<br>
-                  <i class="fas fa-check-circle" style="color: var(--accento);"></i> Ex atleta di alto livelllo di Judo, ora ho intrapreso il percorso da arbitro<br>
-                  <i class="fas fa-check-circle" style="color: var(--accento);"></i> Volotario di protezione civile con molti corsi all'attivo, molto operativo per emergenze regionali e non solo</p>
-                 <!--<button class="btn-cv" id="scaricaCV"><i class="fas fa-download"></i> Scarica CV (PDF simulato)</button> -->
             </div>
          </div>
         Contatti professionali
@@ -489,8 +491,32 @@
             });
         }, {threshold: 0.2});
         sections.forEach(s => observer.observe(s));
+
+        // 4. Gestione delle schermate: nascondi tutte tranne quella attiva
+        const screens = document.querySelectorAll('.screen');
+        const navLinks = document.querySelectorAll('nav a');
+        function showSection(id) {
+            screens.forEach(sec => {
+                if (sec.id === id) {
+                    sec.classList.add('active');
+                } else {
+                    sec.classList.remove('active');
+                }
+            });
+        }
+        navLinks.forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = link.getAttribute('href').substring(1);
+                showSection(target);
+                history.replaceState(null, null, '#'+target);
+            });
+        });
+        if (location.hash) {
+            showSection(location.hash.substring(1));
+        }
     })();
-</script>-->
+</script>
 
 <!-- Nota: per condivisione effettiva è sufficiente inviare il link a questa pagina.
      Se ospitato online (GitHub Pages, Netlify) il link è già condivisibile. -->
