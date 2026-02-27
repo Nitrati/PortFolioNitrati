@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il mio portfolio · umanistico PCTO</title>
-    <!-- Font e icone (Font Awesome per icone dinamiche) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Portfolio professionale · Matteo Nitrati</title>
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
         }
 
         body {
-            background: #f4f1eb;  /* fondo caldo neutro */
-            color: #2c2b28;
-            line-height: 1.5;
+            background: #ffffff;  /* sfondo pulito istituzionale */
+            color: #333333;
+            line-height: 1.6;
             scroll-behavior: smooth;
         }
 
-        /* palette accenti */
+        /* palette accenti istituzionale */
         :root {
-            --accento: #8b6b4d;      /* bordeaux/terra */
-            --chiaro: #faf7f2;
-            --scuro: #2c2b28;
-            --grigio: #e2ddd5;
+            --accento: #003366;      /* blu profondo */
+            --chiaro: #ffffff;
+            --scuro: #002244;
+            --grigio: #cccccc;
         }
 
         .container {
@@ -39,11 +38,11 @@
         header {
             background: var(--scuro);
             color: white;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             position: sticky;
             top: 0;
             z-index: 10;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
 
         header .container {
@@ -70,16 +69,16 @@
 
         nav ul {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
         nav a {
-            color: #ddd;
+            color: #dddddd;
             text-decoration: none;
-            font-weight: 400;
-            transition: 0.2s;
-            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+            font-size: 0.95rem;
             padding: 0.5rem 0;
             border-bottom: 2px solid transparent;
         }
@@ -89,53 +88,49 @@
             border-bottom-color: var(--accento);
         }
 
-        /* bottone condividi */
+        /* link condividi istituzionale */
         .share-btn {
             background: var(--accento);
             border: none;
             color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-            font-size: 0.95rem;
-            border: 1px solid transparent;
+            font-size: 0.9rem;
+            transition: background 0.2s;
         }
 
         .share-btn:hover {
-            background: #735a42;
-            transform: scale(1.02);
+            background: #002244;
         }
 
         /* sezioni generali */
         section {
             background: var(--chiaro);
             margin: 2rem 0;
-            border-radius: 32px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            transition: 0.3s;
-            border: 1px solid #e9e1d6;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            transition: none;
+            border: 1px solid var(--grigio);
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 400;
-            margin-bottom: 2rem;
-            border-left: 10px solid var(--accento);
-            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accento);
+            padding-left: 1rem;
             letter-spacing: -0.02em;
+            color: var(--scuro);
         }
 
         h3 {
             font-size: 1.5rem;
             font-weight: 500;
             margin: 1.5rem 0 1rem;
-            color: #3e3a35;
+            color: var(--scuro);
         }
 
         .card-grid {
@@ -147,28 +142,26 @@
 
         .card {
             background: white;
-            padding: 1.8rem 1.5rem;
-            border-radius: 24px;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.02);
-            transition: all 0.2s ease;
-            border: 1px solid #f0eae2;
+            padding: 1.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+            transition: none;
+            border: 1px solid var(--grigio);
         }
 
         .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 28px rgba(0,0,0,0.05);
+            transform: none;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
             border-color: var(--accento);
         }
 
         .icon {
-            font-size: 2.4rem;
-            color: var(--accento);
-            margin-bottom: 0.8rem;
+            display: none; /* rimuove icone decorative per look istituzionale */
         }
 
         .tag {
             background: var(--grigio);
-            color: #3d352e;
+            color: var(--scuro);
             padding: 0.3rem 0.8rem;
             border-radius: 50px;
             font-size: 0.75rem;
@@ -180,33 +173,15 @@
 
         .citazione {
             font-style: italic;
-            font-size: 1.1rem;
-            color: #5f5549;
+            font-size: 1.05rem;
+            color: #555555;
             border-left: 3px solid var(--accento);
-            padding-left: 1.2rem;
+            padding-left: 1rem;
             margin: 1.5rem 0;
         }
 
-        .btn-cv {
-            background: transparent;
-            border: 2px solid var(--accento);
-            color: var(--accento);
-            padding: 0.8rem 1.8rem;
-            border-radius: 40px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 1rem;
-            text-decoration: none;
-        }
-
-        .btn-cv:hover {
-            background: var(--accento);
-            color: white;
-        }
+        /* removed CV button - styles no longer needed */
+        .btn-cv { display: none; }
 
         footer {
             text-align: center;
@@ -217,16 +192,14 @@
         }
 
         .contatti i {
-            margin: 0 10px;
-            color: var(--accento);
-            font-size: 1.4rem;
+            display: none; /* icone contatto nascoste per formalità */
         }
 
         /* dinamicità: pulsante copia link */
         #linkFeedback {
             font-size: 0.8rem;
             margin-left: 1rem;
-            color: #b5aa9a;
+            color: var(--accento);
         }
 
         /* responsive */
@@ -262,7 +235,7 @@
 <header>
     <div class="container">
         <div class="logo">
-            <a href="#">Matteo Nitrati <span>· portfolio umanistico</span></a>
+            <a href="#">Matteo Nitrati <span>· portfolio professionale</span></a>
         </div>
         <nav>
             <ul>
@@ -274,7 +247,7 @@
             </ul>
         </nav>
         <!-- inserimento di un popup per vedere che il link è stato copiato -->
-        <button class="share-btn" id="shareLinkBtn"><i class="fas fa-share-alt"></i> Condividi portfolio</button>
+        <button class="share-btn" id="shareLinkBtn">Condividi portfolio</button>
         <div id="linkFeedback" style="display: none;">Link copiato!</div>
 
     </div>
@@ -287,12 +260,12 @@
         <h2>1. Autobiografia · Chi sono</h2>
         <div style="display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;">
             <div style="flex: 1 1 250px; text-align: center;">
-                <div style="background: #dad3ca; width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; border: 6px solid white; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
+                <div style="background: #f0f0f0; width: 200px; height: 200px; border-radius: 50%; margin: 0 auto; display: flex; align-items: center; justify-content: center; border: 6px solid white; box-shadow: 0 6px 12px rgba(0,0,0,0.1);">
                     <i class="fas fa-user-graduate" style="font-size: 6rem; color: #735a42;"></i>
                 </div>
             </div>
             <div style="flex: 3 1 400px;">
-                <p style="font-size: 1.5rem; font-weight: 300;">Matteo, 19 anni · <span style="color: var(--accento);">studente</span></p>
+                <p style="font-size: 1.5rem; font-weight: 300;">Matteo, 19 anni · <span style="color: var(--scuro);">studente</span></p>
                 <p class="citazione">“Non esiste competenza senza passione, né cittadinanza senza coscienza.”</p>
                 <p><strong>Le mie 2 tappe:</strong>Chi sono: Studente informatico, volontariato e atleta. </br>
                     Tre aggettivi: </br>
@@ -316,14 +289,7 @@
                 <i class="fas fa-scroll icon"></i>
                 <h3>Storia</h3>
                 <p>Collegare passato e presente, imparare dagli errori passati per non ricommetterli nel futuro.</p>
-                <!--<span class="tag"> mappa interattiva</span>-->
             </div>
-            <!-- <div class="card">
-                <i class="fas fa-brain icon"></i>
-                <h3>Filosofia · antichistica</h3>
-                <p>Il mio filosofo: Hannah Arendt. “La banalità del male e la responsabilità personale” – podcast di 5 min.</p>
-                <span class="tag">🎧 ascolta</span>
-            </div> -->
         </div>
     </section>
 
@@ -388,13 +354,13 @@
             </div>
          </div>
         Contatti professionali
-        <div style="margin-top: 2rem; background: #eae3db; border-radius: 60px; padding: 1.5rem; text-align: center;">
-            <p><i class="fas fa-envelope" style="color: var(--accento);"></i> nitratimatteo@gmail.com <i class="fab fa-linkedin" style="color: var(--accento);"></i> nitrati matteo </p>
+        <div style="margin-top: 2rem; background: #f0f0f0; border-radius: 8px; padding: 1.5rem; text-align: center;">
+            <p>nitratimatteo@gmail.com — nitrati matteo</p>
      </div>
     </section>
 
     <!-- Sezione perché l’ho fatto (conclusione) -->
-    <section style="background: #e7dfd6;">
+    <section style="background: #f9f9f9;">
         <h2>Perché questo portfolio?</h2>
         <div style="display: flex; gap: 1.8rem; flex-wrap: wrap; justify-content: space-evenly;">
             <div style="flex:1; min-width:200px;"><i class="fas fa-star icon"></i> <strong>Esame</strong> <br>presentarmi con chiarezza e originalità</div>
@@ -406,9 +372,9 @@
 </main>
 
 <footer>
-    <p>© 2026 Nitrati Matteo — portfolio realizzato per l’esame di Stato e condivisione professionale</p>
+    <p>© 2026 Matteo Nitrati — tutti i diritti riservati</p>
     <div class="contatti">
-        <i class="fas fa-share-alt"></i> condividi questo link
+        Per informazioni: nitratimatteo@gmail.com
     </div>
     <p id="linkFeedback" style="margin-top: 0.5rem;"></p>
 </footer>
