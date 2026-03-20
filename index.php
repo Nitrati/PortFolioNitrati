@@ -1,3 +1,12 @@
+<?php
+//index.php - pagina principale del portfolio
+// informatica.php - pagina dei progetti di informatica
+// helpdesk.php - pagina di dettaglio del progetto Help Desk
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>

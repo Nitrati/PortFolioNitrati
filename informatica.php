@@ -1,3 +1,8 @@
+<?php
+// Questo file è un template per la pagina dei progetti di informatica.
+
+?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
