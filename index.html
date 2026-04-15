@@ -647,12 +647,24 @@
                 <li><a href="#professionale">Professionale</a></li>
             </ul>
         </nav>
-
+        <!--bottone che servirà per implementare la parte di aggiunta contenuti con il login da parte dell'amministratore-->
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <button class="share-btn" id="shareLinkBtn">
+                <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Admin
+            </button>
+        </div>
+        <!--bottone che servirà per implementare la parte di aggiunta contenuti con il login da parte dell'amministratore-->
         <div style="display:flex;align-items:center;gap:0.75rem;">
             <button class="share-btn" id="shareLinkBtn">
                 <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Condividi
             </button>
             <div id="linkFeedback">✓ Copiato!</div>
+        </div>
+        <!-- bottone che servirà per implementare la parte di login da parte dell'amministratore-->
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+            <button class="share-btn" id="shareLinkBtn">
+                <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Login
+            </button>
         </div>
     </div>
 </header>
@@ -756,21 +768,14 @@
                 <h3>Sistemi e reti</h3>
                 <p>Architetture di rete, gestione reti locali, connessioni internet e servizi come VPN.</p>
             </div>
-                  
 
-            <div class="card">
+            <a href="educazionecivica.html" class="card card-link">
                 <div class="card-icon" style="background:var(--teal-soft); color:var(--teal);">
-                    <i class="fas fa-robot"></i>
+                    <i class="fas fa-code"></i>
                 </div>
-                <h3>Educazione civica</h3>
-                <p>Progetto sulla sicurezza online, privacy e cybersecurity.</p>
-                <p style="font-size:0.9rem; color:var(--text-muted);">
-                    <i class="fas fa-lightbulb" style="color:var(--teal); margin-right:8px;"></i>
-                    Pagina html che riassume i concetti chiave appresi durante il progetto di educazione civica, con focus su sicurezza online, privacy e cybersecurity.
-                <!--apertura pagina html con sito web che parla di questo-->
-                
-                </p>
-            </div>
+                <h3>Educazione civica <i class="fas fa-arrow-right" style="font-size:0.75rem; color:var(--accent); margin-left:6px;"></i></h3>
+                <p>Pagina html che riassume i concetti chiave appresi durante il progetto di educazione civica, con focus su sicurezza online, privacy e cybersecurity.</p>
+            </a>
         </div>
         </div>
     </section>
