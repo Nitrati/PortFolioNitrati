@@ -1,90 +1,356 @@
 <!DOCTYPE html>
-<html lang="it">        
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortFolio Nitrati - Educazione Civica</title>
+    <meta name="description" content="Educazione civica e cittadinanza digitale nel portfolio di Matteo Nitrati">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Portfolio · Matteo Nitrati — Educazione Civica</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-</head>
-<style>
-    /* Stili specifici per la sezione Educazione Civica */
-    #civica .card-icon {
-        background: var(--yellow-soft);
-        color: var(--yellow);
-    }
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-</style>
+        :root {
+            --bg: #0a0e1a;
+            --bg2: #0f1526;
+            --bg3: #151c32;
+            --surface: #1a2240;
+            --border: rgba(100, 140, 255, 0.12);
+            --border-glow: rgba(100, 140, 255, 0.28);
+            --accent: #4f7eff;
+            --accent2: #7c9fff;
+            --accent-soft: rgba(79, 126, 255, 0.12);
+            --teal: #00d4aa;
+            --teal-soft: rgba(0, 212, 170, 0.12);
+            --yellow: #f9d66b;
+            --yellow-soft: rgba(249, 214, 107, 0.14);
+            --text: #e8eaf2;
+            --text-muted: #7a85a8;
+            --text-dim: #4a5478;
+            --radius-sm: 12px;
+            --radius-md: 18px;
+            --radius-lg: 28px;
+            --font-body: 'DM Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -18%;
+            right: -12%;
+            width: 620px;
+            height: 620px;
+            background: radial-gradient(circle, rgba(79,126,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -18%;
+            left: -12%;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(10, 14, 26, 0.88);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-badge {
+            background: var(--accent);
+            color: white;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            letter-spacing: 0.08em;
+        }
+
+        .logo-name {
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 0.4rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.46rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: var(--text);
+            background: var(--surface);
+            border-color: var(--border);
+        }
+
+        .share-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 0.55rem 1.2rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .share-btn:hover {
+            background: var(--accent2);
+            transform: translateY(-1px);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem;
+        }
+
+        section {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+        }
+
+        section:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+        }
+
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        section h1,
+        section h2 {
+            font-size: clamp(2rem, 2.5vw, 2.7rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.8rem;
+            line-height: 1.1;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-4px);
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 0%, var(--accent-soft), transparent 55%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 2.5rem;
+            color: var(--text-dim);
+            font-family: var(--font-mono);
+            font-size: 0.86rem;
+            letter-spacing: 0.04em;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            main { padding: 2rem 1.5rem 3rem; }
+            section { padding: 2.2rem; }
+        }
+
+        @media (max-width: 680px) {
+            .header-inner { flex-wrap: wrap; justify-content: center; }
+            nav ul { justify-content: center; }
+            section { padding: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
 <body>
     <header>
-        <div class="header-content">
-            <h1>PortFolio Nitrati</h1>
+        <div class="header-inner">
+            <a class="logo" href="index.html">
+                <span class="logo-badge">M.N</span>
+                <span class="logo-name">Portfolio</span>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="#personale">Personale</a></li>
-                    <li><a href="#scolastico">Scolastico</a></li>
-                    <li><a href="#tecnologico">Tecnologico</a></li>
-                    <li><a href="#civica">Civica</a></li>
-                    <li><a href="#professionale">Professionale</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#autobiografia">Portfolio</a></li>
+                    <li><a href="index.html">Progetti</a></li>
                 </ul>
             </nav>
-            <!--bottone che servirà per implementare la parte di aggiunta contenuti con il login da parte dell'amministratore-->
-            <div style="display:flex;align-items:center;gap:0.75rem;">
-                <button class="share-btn" id="shareLinkBtn">
-                    <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Admin
-                </button>
-            </div>
+            <button class="share-btn" id="shareLinkBtn">
+                <i class="fas fa-share-nodes" style="margin-right: 0.5rem;"></i>Condividi
+            </button>
         </div>
     </header>
-    <main>
-        <!-- ── PERSONALE ── -->
-        <section id="personale" class="screen">
-            <div class="section-label">01 — chi sono</div>
-            <div class="content-cards">
-                <!-- Contenuti personali -->
-                <div class="card">
-                    <div class="card-icon" style="background:var(--blue-soft); color:var(--blue);">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3>Chi sono</h3>
-                    <p>Mi chiamo Matteo Nitrati, ho 19 anni e frequento l'istituto tecnico Marconi Pieralisi. Sono appassionato di tecnologia, programmazione e intelligenza artificiale.</p>
-                </div>
-                <!-- Altri contenuti personali -->
-            </div>
-        </section>
 
-        <!-- ── SCOLASTICO ── -->
-        <section id="scolastico" class="screen">
-            <div class="section-label">02 — il mio percorso scolastico</div>
-            <div class="content-cards">
-                <!-- Contenuti scolastici -->
-                <div class="card">
-                    <div class="card-icon" style="background:var(--green-soft); color:var(--green);">
-                        <i class="fas fa-school"></i>
-                    </div>
-                    <h3>Il mio percorso scolastico</h3>
-                    <p>Attualmente frequento l'istituto tecnico Marconi Pieralisi, dove approfondisco materie come informatica, sistemi e reti, italiano e storia..</p>
-                </div>
-                <!-- Altri contenuti scolastici -->
-            </div>
-        </section>
-        <!-- ── CIVICA ── -->
-        <section id="civica" class="screen">
+    <main>
+        <section id="civica" class="screen active">
             <div class="section-label">03 — l'educazione civica</div>
-            <div class="content-cards">
-                <!-- Contenuti civici -->
-                <div class="card">
-                    <div class="card-icon" style="background:var(--yellow-soft); color:var(--yellow);">
-                        <i class="fas fa-users"></i>
+            <h2>Educazione civica digitale e cittadinanza responsabile</h2>
+
+            <div class="card-grid">
+                <article class="card">
+                    <div class="card-icon" style="background: var(--yellow-soft); color: var(--yellow);">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>L'educazione civica</h3>
-                    <p>Insieme ai professori si è parlato della sicurezza, cybersecurity, privacy e dell'uso consapevole di internet..</p>
-                </div>
-                <!-- Altri contenuti civici -->
+                    <h3>Sicurezza e privacy</h3>
+                    <p>Studio dei concetti chiave di cybersecurity, protezione dei dati personali e privacy online per navigare in modo sicuro e consapevole.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" style="background: var(--teal-soft); color: var(--teal);">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Uso consapevole di internet</h3>
+                    <p>Promuovo l'uso responsabile delle tecnologie, il rispetto delle regole digitali e la valutazione critica delle fonti in rete.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon" style="background: var(--accent-soft); color: var(--accent);"><i class="fas fa-users"></i></div>
+                    <h3>Cittadinanza digitale</h3>
+                    <p>La cittadinanza digitale unisce diritti e doveri: partecipare con rispetto, difendere l'inclusione e usare la rete come spazio di crescita.</p>
+                </article>
             </div>
         </section>
     </main>
 
+    <footer>
+        © 2024 Portfolio Matteo Nitrati — Educazione Civica
+    </footer>
+</body>
 </html>
