@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -525,3 +526,873 @@
 
 
 
+=======
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- ============================================
+         META TAG ESSENZIALI
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio professionale di Matteo Nitrati - Studente informatico, PCTO e educazione civica">
+    <meta name="author" content="Matteo Nitrati">
+    <meta name="keywords" content="portfolio, matteo nitrati, informatica, pcto, educazione civica">
+    <meta name="language" content="it">
+    
+    <title>Portfolio Matteo Nitrati · Studente Informatico</title>
+    
+    <!-- ============================================
+         FONT E ICONE
+         ============================================ -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVJkEZSMUkrQ6usRD7d+N9/WRo5HkzOf3TI7gFJon+HtkiGg4QkqVbSiS3ddDkM8cv5Z0/hdaZA==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+    
+    <!-- ============================================
+         STILI CSS
+         ============================================ -->
+    <style>
+        /* ============================================
+           RESET E VARIABILI GLOBALI
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Tema CSS */
+        :root {
+            --accento: #003366;
+            --chiaro: #ffffff;
+            --scuro: #002244;
+            --grigio: #cccccc;
+            --grigio-sfondo: #f0f0f0;
+            --grigio-bordo: #dad3ca;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 2.5rem;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 24px;
+            --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.06);
+            --shadow-dark: 0 6px 12px rgba(0, 0, 0, 0.1);
+            --transition: 0.2s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* ============================================
+           HEADER E NAVIGAZIONE
+           ============================================ */
+        header {
+            background: var(--scuro);
+            color: white;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: var(--shadow-light);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            gap: 1rem;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--grigio);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-left: 8px;
+            display: none;
+        }
+
+        nav {
+            flex: 1;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav a {
+            color: #dddddd;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition);
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: white;
+            border-bottom-color: var(--accento);
+        }
+
+        .share-btn {
+            background: var(--accento);
+            border: none;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: var(--radius-sm);
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background var(--transition);
+            white-space: nowrap;
+        }
+
+        .share-btn:hover {
+            background: var(--scuro);
+        }
+
+        #linkFeedback {
+            font-size: 0.8rem;
+            margin-left: 1rem;
+            color: white;
+            display: none;
+        }
+
+        /* ============================================
+           SEZIONI CONTENUTO
+           ============================================ */
+        section {
+            background: var(--chiaro);
+            margin: 2rem 0;
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            box-shadow: var(--shadow-light);
+            border: 1px solid var(--grigio);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accento);
+            padding-left: 1rem;
+            letter-spacing: -0.02em;
+            color: var(--scuro);
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--scuro);
+        }
+
+        /* ============================================
+           GRID CARD
+           ============================================ */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem 1rem;
+            border-radius: var(--radius-md);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--grigio);
+            transition: all var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-medium);
+            border-color: var(--accento);
+        }
+
+        .card-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .icon {
+            display: inline-block;
+            color: var(--accento);
+            margin-bottom: 0.8rem;
+            font-size: 1.8rem;
+        }
+
+        /* ============================================
+           TAG E ELEMENTI INLINE
+           ============================================ */
+        .tag {
+            background: var(--grigio);
+            color: var(--scuro);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin: 0.5rem 0.3rem 0.5rem 0;
+            letter-spacing: 0.4px;
+        }
+
+        .citazione {
+            font-style: italic;
+            font-size: 1.05rem;
+            color: #555555;
+            border-left: 3px solid var(--accento);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        /* ============================================
+           COMPONENTI SPECIFICI
+           ============================================ */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-foto {
+            flex: 1 1 250px;
+            text-align: center;
+        }
+
+        .profile-foto-circle {
+            background: var(--grigio-sfondo);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 6px solid white;
+            box-shadow: var(--shadow-dark);
+        }
+
+        .profile-foto-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-testo {
+            flex: 3 1 400px;
+        }
+
+        .profile-testo p {
+            margin-bottom: 1rem;
+        }
+
+        .pcto-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .pcto-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+
+        .pcto-header {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .pcto-icon {
+            font-size: 3rem;
+            color: var(--accento);
+        }
+
+        .pcto-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .pcto-gallery-item {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+        }
+
+        .pcto-gallery-item img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: var(--radius-md);
+        }
+
+        .professionale-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .professionale-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+
+        .contatti-box {
+            background: var(--grigio-sfondo);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .contatti-box a {
+            color: var(--accento);
+            text-decoration: none;
+        }
+
+        .contatti-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            text-align: center;
+            padding: var(--spacing-xl) 1rem 1.5rem;
+            color: #5f5a54;
+            font-size: 0.95rem;
+            border-top: 1px solid var(--grigio-bordo);
+        }
+
+        /* ============================================
+           SCHERMATE DINAMICHE
+           ============================================ */
+        .screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .screen.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .mt-1 { margin-top: 1rem; }
+        .mt-2 { margin-top: 1.5rem; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 1.5rem; }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .logo span {
+                display: inline;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                flex-direction: column;
+            }
+
+            .pcto-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem 1rem;
+            }
+
+            header .container {
+                padding: 0 1rem;
+            }
+
+            nav a {
+                font-size: 0.85rem;
+            }
+
+            .share-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            #linkFeedback {
+                margin-left: 0.5rem;
+            }
+
+            section {
+                padding: 1.5rem 1rem;
+            }
+
+            .pcto-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .professionale-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         HEADER PRINCIPALE
+         ============================================ -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#autobiografia">
+                    Portfolio Matteo Nitrati
+                    <span>· portfolio professionale</span>
+                </a>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#autobiografia">Autobiografia</a></li>
+                    <li><a href="#scuola">Scuola</a></li>
+                    <li><a href="#pcto">PCTO</a></li>
+                    <li><a href="#civica">Ed. civica</a></li>
+                    <li><a href="#professionale">Professionale</a></li>
+                </ul>
+            </nav>
+
+            <button class="share-btn" id="shareLinkBtn">Condividi portfolio</button>
+            <div id="linkFeedback">✅ Link copiato!</div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main class="container">
+
+        <!-- SEZIONE 1: AUTOBIOGRAFIA -->
+        <section id="autobiografia" class="screen active">
+            <h2>1. Autobiografia · Chi sono</h2>
+            
+            <div class="profile-header">
+                <!-- Foto profilo -->
+                <div class="profile-foto">
+                    <div class="profile-foto-circle">
+                        <img 
+                            src="https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fa3adbcd3-b8de-4a71-b4a6-db9a01cbc576/watermark:F/width:655?csig=AAAAAAAAAAAAAAAAAAAAALeKvpMHDGtloeAzlK4GLmeYLFImKGwWSaqC8wLrjWIi&exp=1774022955&osig=AAAAAAAAAAAAAAAAAAAAAB5OuR6umHZmd8hB594lk96xVsc2RwqzD3IbfAM0bobD&signer=media-rpc&x-canva-quality=screen" 
+                            alt="Foto di Matteo Nitrati"
+                        >
+                    </div>
+                </div>
+
+                <!-- Testo autobiografico -->
+                <div class="profile-testo">
+                    <p style="font-size: 1.5rem; font-weight: 300;">
+                        Matteo, 19 anni · 
+                        <span style="color: var(--scuro);">studente</span>
+                    </p>
+                    
+                    <p class="citazione">
+                        "Non esiste competenza senza passione, né cittadinanza senza coscienza."
+                    </p>
+
+                    <p><strong>Le mie 3 tappe:</strong></p>
+                    <br>
+                    
+                    <p><strong>Chi sono:</strong> Studente informatico, volontariato e atleta (ora arbitro).</p>
+
+                    <p>
+                        <strong>Tre aggettivi:</strong> <br>
+                        <span class="tag">CURIOSO</span>
+                        <span class="tag">EMPATICO</span>
+                        <span class="tag">DETERMINATO</span>
+                    </p>
+                    <br>
+
+                    <p>
+                        <strong>Cosa mi piace:</strong> <br>
+                        <span class="tag">PROGRAMMARE</span>
+                        <span class="tag">VIAGGIARE</span>
+                        <span class="tag">IMPARARE</span>
+                    </p>
+                    <br>
+
+                    <p>
+                        <strong>Cosa cerco:</strong> <br>
+                        <span class="tag">CRESCITA</span>
+                        <span class="tag">ESPERIENZE</span>
+                        <span class="tag">CONOSCENZA</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2: SCUOLA -->
+        <section id="scuola" class="screen">
+            <h2>2. Scuola · le radici</h2>
+            
+            <div class="card-grid">
+                <!-- Card: Italiano -->
+                <div class="card">
+                    <i class="fas fa-scroll icon"></i>
+                    <h3>Italiano</h3>
+                    <p>Analisi testi poetici, produzione testi argomentativi, debate. Il mio elaborato migliore: <em>"Tema sul bullismo affrontato in secondo superiore."</em></p>
+                </div>
+
+                <!-- Card: Storia -->
+                <div class="card">
+                    <i class="fas fa-book icon"></i>
+                    <h3>Storia</h3>
+                    <p>Collegare passato e presente, imparare dagli errori passati per non ricommetterli nel futuro.</p>
+                </div>
+
+                <!-- Card: Informatica (Link) -->
+                <a href="informatica.html" class="card card-link" aria-label="Progetti di Informatica">
+                    <i class="fas fa-code icon"></i>
+                    <h3>Informatica</h3>
+                    <p>Programmazione in C#, HTML, CSS, JavaScript. Progetti di programmazione e sviluppo web.</p>
+                </a>
+
+                <!-- Card: Sistemi e reti -->
+                <div class="card">
+                    <i class="fas fa-users icon"></i>
+                    <h3>Sistemi e reti</h3>
+                    <p>Conoscenza delle architetture di rete, gestione di reti locali e connessioni internet, con i dovuti servizi di rete (VPN...).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: PCTO -->
+        <section id="pcto" class="screen">
+            <h2>3. PCTO · esperienze sul campo</h2>
+            
+            <div class="pcto-container">
+                <!-- Esperienza PCTO -->
+                <div class="pcto-card">
+                    <div class="pcto-header">
+                        <i class="fas fa-briefcase pcto-icon"></i>
+                        
+                        <div>
+                            <h3>Informatica ed automazione - LOCCIONI</h3>
+                            <p><strong>Competenze:</strong> Progettare da zero insieme ad altri miei compagni una macchina per testing e composizione di pacchi batteria</p>
+                            
+                            <span class="tag">soft skills: teamwork</span>
+                            <span class="tag">soft skills: affidabilità</span>
+                            
+                            <br><br>
+                            
+                            <span class="tag">hard skills: coding in C#</span>
+                            <span class="tag">hard skills: HTML</span>
+                            <span class="tag">hard skills: CSS</span>
+                            <span class="tag">hard skills: JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Gallery immagini -->
+                    <div class="pcto-gallery">
+                        <div class="pcto-gallery-item">
+                            <img 
+                                src="https://images.loccioni.com/tmp/tt/0x0x0/media_thumbnail/1758198765_eae67fee43700fc18b00d3d7902824ad.jpg" 
+                                alt="Foto esperienza PCTO 1"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="pcto-gallery-item">
+                            <img 
+                                src="https://www.loccioni.com/wp-content/uploads/2025/05/096A3276-1400x933.jpg" 
+                                alt="Foto esperienza PCTO 2"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="pcto-gallery-item">
+                            <img 
+                                src="https://www.loccioni.com/wp-content/uploads/2025/05/096A6261-1400x933.jpg" 
+                                alt="Foto esperienza PCTO 3"
+                                loading="lazy"
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: EDUCAZIONE CIVICA -->
+        <section id="civica" class="screen">
+            <h2>4. Educazione civica</h2>
+            
+            <div class="card-grid">
+                <!-- Card: Temi -->
+                <div class="card">
+                    <i class="fas fa-gavel icon"></i>
+                    <h3>Temi</h3>
+                    <p>Intelligenza artificiale come tema scontante negli ultimi due anni, visto che si sta diffondendo in maniera considerevole</p>
+                </div>
+
+                <!-- Card: Intelligenza artificiale -->
+                <div class="card">
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>Intelligenza artificiale</h3>
+                    <p>Progetto all'educazione dell'uso della AI</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 5: AREA PROFESSIONALE -->
+        <section id="professionale" class="screen">
+            <h2>5. Area professionale · il mio futuro</h2>
+            
+            <div class="professionale-grid">
+                <!-- Obiettivi -->
+                <div class="professionale-card">
+                    <i class="fas fa-bullseye" style="font-size: 2rem; color: var(--accento); margin-bottom: 1rem;"></i>
+                    <h3>Obiettivi</h3>
+                    <p>Desidero lavorare in un'azienda che mi valorizzasse per cio che so fare e che mi aiutasse nel percorso di crescita formandomi, facendomi fare esperienze anche all'estero, visto che sono un tipo al quale piace molto viaggiare.</p>
+                    <p><strong>Settori:</strong> Ufficio di programmazione, frontman per le riparazioni all'estero e per la manutenzione dei software.</p>
+                </div>
+
+                <!-- Contatti -->
+                <div class="contatti-box">
+                    <h3>Contatti professionali</h3>
+                    <p>
+                        <strong>Email:</strong> 
+                        <a href="mailto:nitratimatteo@gmail.com">nitratimatteo@gmail.com</a>
+                        <br>
+                        <strong>Telefono:</strong> 3914673307
+                        <br>
+                        <strong>Instagram:</strong> @matteonitrati_
+                        <br>
+                        <strong>Facebook:</strong> Matteo Nitrati
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
+        <p>© 2026 Portfolio Matteo Nitrati — tutti i diritti riservati</p>
+        <p>Versione 1.0.0 | Ultimo aggiornamento: <span id="updateDate"></span></p>
+    </footer>
+
+    <!-- ============================================
+         SCRIPT INTERATTIVITÀ
+         ============================================ -->
+    <script>
+        'use strict';
+
+        // ========== DATA AGGIORNAMENTO ==========
+        function setUpdateDate() {
+            const today = new Date();
+            const formatted = today.toLocaleDateString('it-IT', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+            document.getElementById('updateDate').textContent = formatted;
+        }
+        setUpdateDate();
+
+        // ========== PULSANTE CONDIVIDI ==========
+        const shareBtn = document.getElementById('shareLinkBtn');
+        const feedbackSpan = document.getElementById('linkFeedback');
+
+        /**
+         * Copia testo negli appunti
+         * @param {string} text - Testo da copiare
+         * @returns {Promise}
+         */
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                return navigator.clipboard.writeText(text);
+            } else {
+                // Fallback per browser vecchi
+                return new Promise((resolve, reject) => {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    textArea.style.top = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+
+                    try {
+                        document.execCommand('copy') ? resolve() : reject();
+                    } catch (err) {
+                        reject(err);
+                    } finally {
+                        textArea.remove();
+                    }
+                });
+            }
+        }
+
+        /**
+         * Handler pulsante condividi
+         */
+        shareBtn.addEventListener('click', function() {
+            const urlCorrente = window.location.href;
+            copyToClipboard(urlCorrente)
+                .then(() => {
+                    feedbackSpan.textContent = '✅ Link copiato negli appunti!';
+                    feedbackSpan.style.display = 'inline';
+                    shareBtn.style.backgroundColor = '#5f7b6e';
+
+                    setTimeout(() => {
+                        feedbackSpan.textContent = '✅ Link copiato!';
+                        feedbackSpan.style.display = 'none';
+                        shareBtn.style.backgroundColor = 'var(--accento)';
+                    }, 2500);
+                })
+                .catch(() => {
+                    feedbackSpan.textContent = '❌ Errore nella copia';
+                    feedbackSpan.style.display = 'inline';
+                });
+        });
+
+        // ========== INTERSECTION OBSERVER PER ANIMAZIONI ==========
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transition = 'box-shadow 0.2s';
+                    entry.target.style.boxShadow = '0 0 0 3px rgba(139,107,77,0.2)';
+                    setTimeout(() => {
+                        entry.target.style.boxShadow = '0 8px 20px rgba(0,0,0,0.02)';
+                    }, 600);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        sections.forEach(s => observer.observe(s));
+
+        // ========== GESTIONE NAVIGAZIONE E SCHERMATE ==========
+        const screens = document.querySelectorAll('.screen');
+        const navLinks = document.querySelectorAll('nav a');
+
+        /**
+         * Mostra la sezione selezionata
+         * @param {string} id - ID della sezione da mostrare
+         */
+        function showSection(id) {
+            screens.forEach(sec => {
+                if (sec.id === id) {
+                    sec.classList.add('active');
+                } else {
+                    sec.classList.remove('active');
+                }
+            });
+        }
+
+        /**
+         * Handler click navigazione
+         */
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Non bloccare link veri (come informatica.html)
+                if (this.href.includes('#')) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    showSection(target);
+                    history.replaceState(null, null, '#' + target);
+                }
+            });
+        });
+
+        /**
+         * Supporto per navigazione diretta tramite hash URL
+         */
+        if (window.location.hash) {
+            showSection(window.location.hash.substring(1));
+        }
+
+        /**
+         * Supporto per tasto back/forward
+         */
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash) {
+                showSection(window.location.hash.substring(1));
+            }
+        });
+    </script>
+
+</body>
+</html>
+>>>>>>> origin/main
