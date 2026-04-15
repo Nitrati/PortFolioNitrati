@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortFolio Nitrati - Educazione Civica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PortFolio Nitrati</h1>
+            <nav>
+                <ul>
+                    <li><a href="#personale">Personale</a></li>
+                    <li><a href="#scolastico">Scolastico</a></li>
+                    <li><a href="#tecnologico">Tecnologico</a></li>
+                    <li><a href="#civica">Civica</a></li>
+                    <li><a href="#professionale">Professionale</a></li>
+                </ul>
+            </nav>
+            <!--bottone che servirà per implementare la parte di aggiunta contenuti con il login da parte dell'amministratore-->
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="share-btn" id="shareLinkBtn">
+                    <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Admin
+                </button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- ── PERSONALE ── -->
+        <section id="personale" class="screen">
+            <div class="section-label">01 — chi sono</div>
+            <div class="content-cards">
+                <!-- Contenuti personali -->
+                <div class="card">
+                    <div class="card-icon" style="background:var(--blue-soft); color:var(--blue);">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Chi sono</h3>
+                    <p>Mi chiamo Matteo Nitrati, ho 19 anni e frequento l'istituto tecnico Marconi Pieralisi. Sono appassionato di tecnologia, programmazione e intelligenza artificiale.</p>
+                </div>
+                <!-- Altri contenuti personali -->
+            </div>
+        </section>
+
+        <!-- ── SCOLASTICO ── -->
+        <section id="scolastico" class="screen">
+            <div class="section-label">02 — il mio percorso scolastico</div>
+            <div class="content-cards">
+                <!-- Contenuti scolastici -->
+                <div class="card">
+                    <div class="card-icon" style="background:var(--green-soft); color:var(--green);">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>Il mio percorso scolastico</h3>
+                    <p>Attualmente frequento l'istituto tecnico Marconi Pieralisi, dove approfondisco materie come informatica, sistemi e reti, italiano e storia..</p>
+                </div>
+                <!-- Altri contenuti scolastici -->
+            </div>
+        </section>
+        <!-- ── CIVICA ── -->
+        <section id="civica" class="screen">
+            <div class="section-label">03 — l'educazione civica</div>
+            <div class="content-cards">
+                <!-- Contenuti civici -->
+                <div class="card">
+                    <div class="card-icon" style="background:var(--yellow-soft); color:var(--yellow);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>L'educazione civica</h3>
+                    <p>Insieme ai professori si è parlato della sicurezza, cybersecurity, privacy e dell'uso consapevole di internet..</p>
+                </div>
+                <!-- Altri contenuti civici -->
+            </div>
+        </section>
+    </main>
+
+</html>
