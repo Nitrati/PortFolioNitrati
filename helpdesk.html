@@ -20,6 +20,23 @@
         padding: 20px;
         text-align: center;
         border-bottom: 1px solid #dee2e6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .theme-btn {
+        background: #6c757d;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+
+    .theme-btn:hover {
+        background: #5a6268;
     }
     main {
         padding: 20px;
@@ -48,6 +65,9 @@
 <body>
     <header>
         <h1>Help Desk</h1>
+        <button class="theme-btn" id="themeToggleBtn">
+            <i class="fas fa-moon"></i>
+        </button>
     </header>
     <main>
         <section class="project-details">
@@ -64,4 +84,22 @@
     <footer>
         <p>&copy; 2024 Portfolio Nitrati. Tutti i diritti riservati.</p>
     </footer>
+
+    <script>
+        // Theme toggle (simple for this page)
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = themeToggleBtn.querySelector('i');
+        let isDark = false;
+
+        themeToggleBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            document.body.style.backgroundColor = isDark ? '#333' : '#f4f4f4';
+            document.body.style.color = isDark ? '#fff' : '#000';
+            document.querySelector('header').style.backgroundColor = isDark ? '#333' : '#f8f9fa';
+            document.querySelector('header').style.color = isDark ? '#fff' : '#212529';
+            document.querySelector('footer').style.backgroundColor = isDark ? '#333' : '#f8f9fa';
+            document.querySelector('footer').style.color = isDark ? '#fff' : '#212529';
+            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        });
+    </script>
 </html>

@@ -32,8 +32,27 @@
             --text-muted: #6c757d;
             --text-dim: #adb5bd;
             --teal: #00d4aa;
+            --teal-soft: rgba(0, 212, 170, 0.12);            --header-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        .dark-theme {
+            --bg: #0a0e1a;
+            --bg2: #0f1526;
+            --bg3: #151c32;
+            --surface: #1a2240;
+            --surface2: #202948;
+            --border: rgba(100, 140, 255, 0.12);
+            --border-glow: rgba(100, 140, 255, 0.3);
+            --accent: #4f7eff;
+            --accent2: #7c9fff;
+            --accent-soft: rgba(79, 126, 255, 0.12);
+            --accent-mid: rgba(79, 126, 255, 0.25);
+            --text: #e8eaf2;
+            --text-muted: #7a85a8;
+            --text-dim: #4a5478;
+            --teal: #00d4aa;
             --teal-soft: rgba(0, 212, 170, 0.12);
-            --radius-sm: 12px;
+            --header-bg: rgba(10, 14, 26, 0.85);            --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 32px;
             --radius-xl: 48px;
@@ -83,7 +102,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.85);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -164,6 +183,25 @@
         .share-btn:hover {
             background: var(--accent2);
             transform: translateY(-1px);
+        }
+
+        .theme-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .theme-btn:hover {
+            background: var(--bg2);
+            border-color: var(--accent);
         }
 
         #linkFeedback {
@@ -674,6 +712,9 @@
             <button class="share-btn" id="shareLinkBtn">
                 <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Condividi
             </button>
+            <button class="theme-btn" id="themeToggleBtn">
+                <i class="fas fa-moon" style="margin-right:6px;"></i>Tema
+            </button>
             <div id="linkFeedback">✓ Copiato!</div>
         </div>
         <!-- bottone che servirà per implementare la parte di login da parte dell'amministratore-->
@@ -971,6 +1012,36 @@ if (location.hash) showSection(location.hash.substring(1));
 window.addEventListener('hashchange', () => {
     if (location.hash) showSection(location.hash.substring(1));
 });
+
+// Theme toggle
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeIcon = themeToggleBtn.querySelector('i');
+
+function setTheme(theme) {
+    document.documentElement.classList.toggle('dark-theme', theme === 'dark');
+    localStorage.setItem('theme', theme);
+    updateThemeButton(theme);
+}
+
+function updateThemeButton(theme) {
+    if (theme === 'dark') {
+        themeIcon.className = 'fas fa-sun';
+        themeToggleBtn.innerHTML = '<i class="fas fa-sun" style="margin-right:6px;"></i>Tema';
+    } else {
+        themeIcon.className = 'fas fa-moon';
+        themeToggleBtn.innerHTML = '<i class="fas fa-moon" style="margin-right:6px;"></i>Tema';
+    }
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+});
+
+// Initialize theme
+const savedTheme = localStorage.getItem('theme') || 'light';
+setTheme(savedTheme);
 </script>
 </body>
 </html>

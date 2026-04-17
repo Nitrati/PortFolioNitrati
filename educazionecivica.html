@@ -33,6 +33,28 @@
             --text: #212529;
             --text-muted: #6c757d;
             --text-dim: #adb5bd;
+            --header-bg: rgba(255, 255, 255, 0.88);
+        }
+
+        .dark-theme {
+            --bg: #0a0e1a;
+            --bg2: #0f1526;
+            --bg3: #151c32;
+            --surface: #1a2240;
+            --border: rgba(100, 140, 255, 0.12);
+            --border-glow: rgba(100, 140, 255, 0.28);
+            --accent: #4f7eff;
+            --accent2: #7c9fff;
+            --accent-soft: rgba(79, 126, 255, 0.12);
+            --teal: #00d4aa;
+            --teal-soft: rgba(0, 212, 170, 0.12);
+            --yellow: #f9d66b;
+            --yellow-soft: rgba(249, 214, 107, 0.14);
+            --text: #e8eaf2;
+            --text-muted: #7a85a8;
+            --text-dim: #4a5478;
+            --header-bg: rgba(10, 14, 26, 0.88);
+        }
             --radius-sm: 12px;
             --radius-md: 18px;
             --radius-lg: 28px;
@@ -82,7 +104,7 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.88);
+            background: var(--header-bg);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid var(--border);
@@ -161,6 +183,25 @@
         .share-btn:hover {
             background: var(--accent2);
             transform: translateY(-1px);
+        }
+
+        .theme-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 1.1rem;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s ease;
+            letter-spacing: -0.01em;
+        }
+
+        .theme-btn:hover {
+            background: var(--bg2);
+            border-color: var(--accent);
         }
 
         main {
@@ -312,9 +353,14 @@
                     <li><a href="index.html">Progetti</a></li>
                 </ul>
             </nav>
-            <button class="share-btn" id="shareLinkBtn">
-                <i class="fas fa-share-nodes" style="margin-right: 0.5rem;"></i>Condividi
-            </button>
+            <div style="display:flex;align-items:center;gap:0.75rem;">
+                <button class="theme-btn" id="themeToggleBtn">
+                    <i class="fas fa-moon" style="margin-right:6px;"></i>Tema
+                </button>
+                <button class="share-btn" id="shareLinkBtn">
+                    <i class="fas fa-share-nodes" style="margin-right: 0.5rem;"></i>Condividi
+                </button>
+            </div>
         </div>
     </header>
 
@@ -352,5 +398,53 @@
     <footer>
         © 2024 Portfolio Matteo Nitrati — Educazione Civica
     </footer>
+
+    <script>
+        // Theme toggle
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        function setTheme(theme) {
+            document.documentElement.classList.toggle('dark-theme', theme === 'dark');
+            localStorage.setItem('theme', theme);
+            updateThemeButton(theme);
+        }
+
+        function updateThemeButton(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+                themeToggleBtn.innerHTML = '<i class="fas fa-sun" style="margin-right:6px;"></i>Tema';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                themeToggleBtn.innerHTML = '<i class="fas fa-moon" style="margin-right:6px;"></i>Tema';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        // Share functionality
+        const shareBtn = document.getElementById('shareLinkBtn');
+
+        shareBtn.addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Educazione Civica - Portfolio Matteo Nitrati',
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Link copiato negli appunti!');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
