@@ -1,104 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Desk</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Progetto Help Desk — Portfolio Matteo Nitrati">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Help Desk · Portfolio Matteo Nitrati</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 </head>
-<style>
-    /* stile simile a quello della index */
-    body {
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-    }
-    header {
-        background-color: #f8f9fa;
-        color: #212529;
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid #dee2e6;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .theme-btn {
-        background: #6c757d;
-        border: none;
-        color: white;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1rem;
-    }
-    .theme-btn:hover {
-        background: #5a6268;
-    }
-    h1 {
-        margin-top: 20px;
-        color: #212529;
-    }
-    p {
-        color: #212529;
-        font-size: 1.1rem;
-    }
-    .project-details {
-        max-width: 800px;
-        margin: 20px auto;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 5px;
-    }
-    footer {
-        background-color: #f8f9fa;
-        color: #212529;
-        text-align: center;
-        padding: 10px;
-        border-top: 1px solid #dee2e6;
-    }
-    
-</style>
-
 <body>
+
     <header>
-        <h1>Help Desk</h1>
-        <button class="theme-btn" id="themeToggleBtn">
-            <i class="fas fa-moon"></i>
-        </button>
+        <div class="header-inner">
+            <a class="logo" href="index.html">
+                <span class="logo-badge">M.N</span>
+                <span class="logo-name">Portfolio</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#autobiografia">Su di me</a></li>
+                    <li><a href="informatica.html">Informatica</a></li>
+                    <li><a href="educazionecivica.html">Ed. Civica</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn" id="shareBtn">
+                    <i class="fas fa-share-nodes"></i> Condividi
+                </button>
+            </div>
+        </div>
     </header>
+
     <main>
-        <section class="project-details">
-            <h2>Dettagli del Progetto</h2>
-            <p>Il progetto Help Desk è stato sviluppato per fornire supporto tecnico agli utenti. </br>
-                Include funzionalità come la gestione dei ticket, la comunicazione con gli utenti e la risoluzione dei problemi.</p>
-            <ul>
-                <li><strong>Tecnologie utilizzate:</strong> PHP, MySQL, HTML, CSS</li>
-                <li><strong>Ruolo:</strong> Sviluppatore Full Stack</li>
-                <li><strong>Durata:</strong> 6 mesi</li>
-            </ul>
+        <section class="section">
+            <span class="label">04 — progetto</span>
+            <h1 class="section-title">Help Desk</h1>
+            <p class="section-sub">Sistema di ticketing per la gestione delle segnalazioni scolastiche, con interfaccia web e applicazione desktop.</p>
+
+            <div class="detail-block">
+                <p class="desc">
+                    Il progetto Help Desk è stato sviluppato per fornire supporto tecnico agli utenti dell'istituto.
+                    Include funzionalità di gestione ticket, comunicazione con gli utenti e risoluzione guidata dei problemi,
+                    accessibili sia via browser che tramite applicazione desktop dedicata.
+                </p>
+                <ul class="detail-list">
+                    <li>
+                        <span class="dl-label">Tecnologie</span>
+                        <span>PHP, MySQL, HTML, CSS, C#</span>
+                    </li>
+                    <li>
+                        <span class="dl-label">Ruolo</span>
+                        <span>Sviluppatore Full Stack</span>
+                    </li>
+                    <li>
+                        <span class="dl-label">Durata</span>
+                        <span>6 mesi</span>
+                    </li>
+                    <li>
+                        <span class="dl-label">Ambito</span>
+                        <span>Progetto scolastico — Informatica</span>
+                    </li>
+                </ul>
+                <div class="tags">
+                    <span class="tag teal">PHP</span>
+                    <span class="tag teal">MySQL</span>
+                    <span class="tag teal">C#</span>
+                    <span class="tag blue">HTML</span>
+                    <span class="tag blue">CSS</span>
+                    <span class="tag">Full Stack</span>
+                </div>
+            </div>
+
+            <a class="back-link" href="informatica.html">
+                <i class="fas fa-arrow-left"></i> Torna ai progetti
+            </a>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2024 Portfolio Nitrati. Tutti i diritti riservati.</p>
+        <p>© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p>Help Desk</p>
     </footer>
 
     <script>
-        // Theme toggle (simple for this page)
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const themeIcon = themeToggleBtn.querySelector('i');
-        let isDark = false;
-
-        themeToggleBtn.addEventListener('click', () => {
-            isDark = !isDark;
-            document.body.style.backgroundColor = isDark ? '#333' : '#f4f4f4';
-            document.body.style.color = isDark ? '#fff' : '#000';
-            document.querySelector('header').style.backgroundColor = isDark ? '#333' : '#f8f9fa';
-            document.querySelector('header').style.color = isDark ? '#fff' : '#212529';
-            document.querySelector('footer').style.backgroundColor = isDark ? '#333' : '#f8f9fa';
-            document.querySelector('footer').style.color = isDark ? '#fff' : '#212529';
-            themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({ title: 'Help Desk · Portfolio Matteo Nitrati', url: location.href });
+            } else {
+                navigator.clipboard.writeText(location.href).then(() => alert('Link copiato negli appunti!'));
+            }
         });
     </script>
+
+</body>
 </html>
