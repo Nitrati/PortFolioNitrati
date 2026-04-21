@@ -8,6 +8,13 @@
     <style>
         :root {
             --accent: #00ffd5;
+            --bg1: #ffffff;
+            --card: rgba(0, 0, 0, 0.03);
+            --muted: rgba(0, 0, 0, 0.06);
+        }
+
+        .dark-theme {
+            --accent: #00ffd5;
             --bg1: #071022;
             --card: rgba(255, 255, 255, 0.03);
             --muted: rgba(255, 255, 255, 0.06);
@@ -19,8 +26,8 @@
             font-family: 'Inter', system-ui, Arial, sans-serif;
         }
         body {
-            background: linear-gradient(135deg, var(--bg1), #0f1b2b);
-            color: #eaf8f4;
+            background: linear-gradient(135deg, var(--bg1), #f8f9fa);
+            color: #212529;
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -30,11 +37,29 @@
             padding: 1rem;
         }
         header {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), transparent);
             padding: 0.6rem 1rem;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.04);
             backdrop-filter: blur(6px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .theme-btn:hover {
+            background: var(--muted);
         }
         header a {
             color: var(--accent);
@@ -92,7 +117,12 @@
 </head>
 <body>
     <div class="container">
-        <header><a href="index.html">← Torna al portfolio</a></header>
+        <header>
+            <a href="index.html">← Torna al portfolio</a>
+            <button class="theme-btn" id="themeToggleBtn">
+                <i class="fas fa-moon" style="margin-left:1rem;"></i>
+            </button>
+        </header>
         
         <h1>Progetti di Informatica</h1>
         <p>Elenco dei progetti svolti in ambito informatico. Clicca su una scheda per maggiori dettagli.</p>
@@ -124,5 +154,35 @@
 
         <a class="back" href="index.html">← Torna al portfolio</a>
     </div>
+
+    <script>
+        // Theme toggle
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        function setTheme(theme) {
+            document.documentElement.classList.toggle('dark-theme', theme === 'dark');
+            localStorage.setItem('theme', theme);
+            updateThemeButton(theme);
+        }
+
+        function updateThemeButton(theme) {
+            if (theme === 'dark') {
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.classList.contains('dark-theme') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+    </script>
 </body>
 </html>
