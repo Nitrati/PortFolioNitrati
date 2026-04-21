@@ -16,7 +16,9 @@
             box-sizing: border-box;
         }
 
+        /* ── FORZA TEMA SCURO SEMPRE ── */
         :root {
+            color-scheme: dark;
             --bg: #0a0e1a;
             --bg2: #0f1526;
             --bg3: #151c32;
@@ -41,16 +43,52 @@
             --font-mono: 'Space Mono', monospace;
         }
 
-        html { scroll-behavior: smooth; }
+        /* ── OVERRIDE COMPLETO: ignora preferenza sistema ── */
+        @media (prefers-color-scheme: light) {
+            :root {
+                color-scheme: dark;
+                --bg: #0a0e1a;
+                --bg2: #0f1526;
+                --bg3: #151c32;
+                --surface: #1a2240;
+                --surface2: #202948;
+                --border: rgba(100, 140, 255, 0.12);
+                --border-glow: rgba(100, 140, 255, 0.3);
+                --accent: #4f7eff;
+                --accent2: #7c9fff;
+                --accent-soft: rgba(79, 126, 255, 0.12);
+                --accent-mid: rgba(79, 126, 255, 0.25);
+                --text: #e8eaf2;
+                --text-muted: #7a85a8;
+                --text-dim: #4a5478;
+                --teal: #00d4aa;
+                --teal-soft: rgba(0, 212, 170, 0.12);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: #0a0e1a !important;
+            color: #e8eaf2 !important;
+        }
 
         body {
-            background: var(--bg);
-            color: var(--text);
+            background: var(--bg) !important;
+            color: var(--text) !important;
             font-family: var(--font-body);
             font-size: 16px;
             line-height: 1.7;
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* Forza tutto il testo a usare i colori del tema scuro */
+        body * {
+            color: inherit;
+        }
+
+        p, li, span, div, h1, h2, h3, h4, h5, h6, a, label, td, th, blockquote {
+            color: inherit;
         }
 
         /* ── BACKGROUND ORBS ── */
@@ -95,8 +133,7 @@
             padding: 0.9rem 2rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
+            gap: 0.75rem;
         }
 
         .logo {
@@ -104,11 +141,12 @@
             align-items: center;
             gap: 0.75rem;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .logo-badge {
             background: var(--accent);
-            color: white;
+            color: white !important;
             font-family: var(--font-mono);
             font-size: 0.7rem;
             font-weight: 700;
@@ -118,10 +156,17 @@
         }
 
         .logo-name {
-            color: var(--text);
+            color: var(--text) !important;
             font-weight: 600;
             font-size: 1rem;
             letter-spacing: -0.02em;
+        }
+
+        /* ── NAV: spazio flessibile a sinistra, bottoni alla destra ── */
+        nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
@@ -131,7 +176,7 @@
         }
 
         nav a {
-            color: var(--text-muted);
+            color: var(--text-muted) !important;
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
@@ -139,18 +184,28 @@
             border-radius: 100px;
             transition: all 0.2s ease;
             border: 1px solid transparent;
+            white-space: nowrap;
         }
 
         nav a:hover {
-            color: var(--text);
+            color: var(--text) !important;
             background: var(--surface);
             border-color: var(--border);
         }
 
-        .share-btn {
+        /* ── AREA BOTTONI HEADER ── */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .share-btn,
+        .submit-btn {
             background: var(--accent);
             border: none;
-            color: white;
+            color: white !important;
             padding: 0.45rem 1.1rem;
             border-radius: 100px;
             font-weight: 600;
@@ -159,16 +214,28 @@
             font-family: var(--font-body);
             transition: all 0.2s ease;
             letter-spacing: -0.01em;
+            white-space: nowrap;
         }
 
-        .share-btn:hover {
+        .share-btn:hover,
+        .submit-btn:hover {
             background: var(--accent2);
             transform: translateY(-1px);
         }
 
+        .submit-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .submit-btn:hover {
+            background: var(--surface2);
+            border-color: var(--border-glow);
+        }
+
         #linkFeedback {
             font-size: 0.8rem;
-            color: var(--teal);
+            color: var(--teal) !important;
             display: none;
             white-space: nowrap;
         }
@@ -184,7 +251,7 @@
 
         /* ── SECTIONS ── */
         section {
-            background: var(--bg2);
+            background: var(--bg2) !important;
             border: 1px solid var(--border);
             border-radius: var(--radius-xl);
             padding: 3rem;
@@ -209,7 +276,7 @@
         .section-label {
             font-family: var(--font-mono);
             font-size: 0.7rem;
-            color: var(--accent);
+            color: var(--accent) !important;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             margin-bottom: 0.5rem;
@@ -219,7 +286,7 @@
             font-size: 2rem;
             font-weight: 600;
             letter-spacing: -0.04em;
-            color: var(--text);
+            color: var(--text) !important;
             margin-bottom: 2rem;
             line-height: 1.2;
         }
@@ -227,7 +294,7 @@
         section h3 {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text);
+            color: var(--text) !important;
             margin-bottom: 0.5rem;
             letter-spacing: -0.02em;
         }
@@ -241,7 +308,7 @@
         }
 
         .card {
-            background: var(--bg3);
+            background: var(--bg3) !important;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 1.75rem;
@@ -285,7 +352,7 @@
             justify-content: center;
             margin-bottom: 1rem;
             font-size: 1.2rem;
-            color: var(--accent);
+            color: var(--accent) !important;
             position: relative;
             z-index: 1;
         }
@@ -297,7 +364,7 @@
 
         .card p {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--text-muted) !important;
             line-height: 1.65;
             position: relative;
             z-index: 1;
@@ -310,7 +377,7 @@
             gap: 5px;
             background: var(--surface);
             border: 1px solid var(--border);
-            color: var(--text-muted);
+            color: var(--text-muted) !important;
             padding: 0.3rem 0.75rem;
             border-radius: 100px;
             font-size: 0.78rem;
@@ -322,26 +389,26 @@
 
         .tag:hover {
             border-color: var(--border-glow);
-            color: var(--accent2);
+            color: var(--accent2) !important;
         }
 
         .tag-accent {
             background: var(--accent-soft);
             border-color: rgba(79, 126, 255, 0.3);
-            color: var(--accent2);
+            color: var(--accent2) !important;
         }
 
         .tag-teal {
             background: var(--teal-soft);
             border-color: rgba(0, 212, 170, 0.3);
-            color: var(--teal);
+            color: var(--teal) !important;
         }
 
         /* ── QUOTE ── */
         .citazione {
             font-size: 1.05rem;
             font-style: italic;
-            color: var(--text-muted);
+            color: var(--text-muted) !important;
             border-left: 2px solid var(--accent);
             padding-left: 1.25rem;
             margin: 1.5rem 0;
@@ -398,12 +465,13 @@
             font-weight: 600;
             letter-spacing: -0.04em;
             margin-bottom: 0.25rem;
+            color: var(--text) !important;
         }
 
         .profile-role {
             font-family: var(--font-mono);
             font-size: 0.8rem;
-            color: var(--accent);
+            color: var(--accent) !important;
             letter-spacing: 0.08em;
             margin-bottom: 1.25rem;
         }
@@ -423,19 +491,19 @@
             font-family: var(--font-mono);
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--accent) !important;
         }
 
         .profile-stat-label {
             font-size: 0.78rem;
-            color: var(--text-dim);
+            color: var(--text-dim) !important;
             text-transform: uppercase;
             letter-spacing: 0.06em;
         }
 
         /* ── PCTO ── */
         .pcto-card {
-            background: var(--bg3);
+            background: var(--bg3) !important;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 2rem;
@@ -462,7 +530,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            color: var(--accent);
+            color: var(--accent) !important;
             flex-shrink: 0;
         }
 
@@ -471,11 +539,12 @@
             font-weight: 600;
             letter-spacing: -0.02em;
             margin-bottom: 0.35rem;
+            color: var(--text) !important;
         }
 
         .pcto-desc {
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--text-muted) !important;
         }
 
         .pcto-gallery {
@@ -514,7 +583,7 @@
 
         /* ── PROFESSIONALE ── */
         .obiettivi-card {
-            background: var(--bg3);
+            background: var(--bg3) !important;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 2rem;
@@ -522,7 +591,7 @@
         }
 
         .contatti-card {
-            background: var(--bg3);
+            background: var(--bg3) !important;
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 2rem;
@@ -553,25 +622,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            color: var(--accent) !important;
             font-size: 0.95rem;
             flex-shrink: 0;
         }
 
         .contatti-row a {
-            color: var(--text);
+            color: var(--text) !important;
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.2s;
         }
 
         .contatti-row a:hover {
-            color: var(--accent);
+            color: var(--accent) !important;
         }
 
         .contatti-label {
             font-size: 0.75rem;
-            color: var(--text-dim);
+            color: var(--text-dim) !important;
             font-family: var(--font-mono);
             letter-spacing: 0.05em;
         }
@@ -584,17 +653,18 @@
         footer {
             text-align: center;
             padding: 2rem 1rem;
-            color: var(--text-dim);
+            color: var(--text-dim) !important;
             font-size: 0.82rem;
             font-family: var(--font-mono);
             letter-spacing: 0.04em;
             border-top: 1px solid var(--border);
             position: relative;
             z-index: 1;
+            background: var(--bg) !important;
         }
 
         footer span {
-            color: var(--accent);
+            color: var(--accent) !important;
         }
 
         /* ── RESPONSIVE ── */
@@ -606,12 +676,14 @@
 
         @media (max-width: 680px) {
             .header-inner { flex-wrap: wrap; gap: 0.75rem; }
+            nav { width: 100%; justify-content: center; }
             nav ul { gap: 0; flex-wrap: wrap; justify-content: center; }
             section { padding: 1.5rem 1.25rem; }
             section h2 { font-size: 1.6rem; }
             .pcto-gallery { grid-template-columns: 1fr; }
             .profile-stat-row { gap: 1.25rem; }
             main { padding: 1.5rem 1rem 3rem; }
+            .header-actions { width: 100%; justify-content: center; }
         }
 
         /* ── ANIM ── */
@@ -628,28 +700,6 @@
 
         section:nth-child(2) { animation-delay: 0.05s; }
         section:nth-child(3) { animation-delay: 0.1s; }
-        /*button*/
-        .submit-btn {
-            background: var(--accent);
-            border: none;
-            color: white;
-            padding: 0.45rem 1.1rem;
-            border-radius: 100px;
-            font-weight: 600;
-            font-size: 0.85rem;
-            cursor: pointer;
-            font-family: var(--font-body);
-            transition: all 0.2s ease;
-            letter-spacing: -0.01em;
-        }
-        .submit-btn:hover {
-            background: var(--accent2);
-            transform: translateY(-1px);
-        }
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
     </style>
 </head>
 <body>
@@ -669,15 +719,12 @@
                 <li><a href="#professionale">Professionale</a></li>
             </ul>
         </nav>
-        <!--bottone che servirà per implementare la parte di aggiunta contenuti con il login da parte dell'amministratore-->
-        <div style="display:flex;align-items:center;gap:0.75rem;">
+
+        <div class="header-actions">
+            <span id="linkFeedback">✓ Copiato!</span>
             <button class="share-btn" id="shareLinkBtn">
                 <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Condividi
             </button>
-            <div id="linkFeedback">✓ Copiato!</div>
-        </div>
-        <!-- bottone che servirà per implementare la parte di login da parte dell'amministratore-->
-        <div style="display:flex;align-items:center;gap:0.75rem;">
             <button class="submit-btn" id="loginBtn">
                 <i class="fas fa-user" style="margin-right:6px;"></i>Login
             </button>
@@ -793,7 +840,6 @@
                 <p>Pagina html che riassume i concetti chiave appresi durante il progetto di educazione civica, con focus su sicurezza online, privacy e cybersecurity.</p>
             </a>
         </div>
-        </div>
     </section>
 
     <!-- ── PCTO ── -->
@@ -826,7 +872,6 @@
                 <span class="tag tag-teal">CSS</span>
                 <span class="tag tag-teal">Python</span>
                 <span class="tag tag-teal">JavaScript</span>
-
             </div>
 
             <div class="pcto-gallery">
@@ -842,6 +887,7 @@
             </div>
         </div>
     </section>
+
     <!-- ── PROFESSIONALE ── -->
     <section id="professionale" class="screen">
         <div class="section-label">05 — il mio futuro</div>
@@ -882,7 +928,7 @@
             </div>
 
             <div class="contatti-row">
-                <div class="contatti-icon" style="background:rgba(225,48,108,0.12); color:#e1306c;">
+                <div class="contatti-icon" style="background:rgba(225,48,108,0.12); color:#e1306c !important;">
                     <i class="fab fa-instagram"></i>
                 </div>
                 <div>
@@ -892,7 +938,7 @@
             </div>
 
             <div class="contatti-row">
-                <div class="contatti-icon" style="background:rgba(24,119,242,0.12); color:#1877f2;">
+                <div class="contatti-icon" style="background:rgba(24,119,242,0.12); color:#1877f2 !important;">
                     <i class="fab fa-facebook"></i>
                 </div>
                 <div>
@@ -908,15 +954,13 @@
 <footer>
     <p>© 2026 <span>Matteo Nitrati</span> · Tutti i diritti riservati · v1.0.0 · <span id="updateDate"></span></p>
 </footer>
-
+<!-- script in java per i link di condivisione -->
 <script>
 'use strict';
 
-// Data aggiornamento
 document.getElementById('updateDate').textContent =
     new Date().toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
-// Condividi
 const shareBtn = document.getElementById('shareLinkBtn');
 const feedbackSpan = document.getElementById('linkFeedback');
 
@@ -945,7 +989,6 @@ shareBtn.addEventListener('click', () => {
     });
 });
 
-// Navigazione sezioni
 const screens = document.querySelectorAll('.screen');
 
 function showSection(id) {
