@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersicurezza — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Cybersicurezza · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-lock"></i> Cybersicurezza
+            </span>
+            <h1 class="article-title">Proteggere il Castello Digitale</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Cosa è la Cybersicurezza?</h2>
+            <p>La cybersicurezza è la pratica di proteggere computer, reti, e dati da attacchi digitali. Non è solo una questione tecnica – è un problema civile. Quando la vostra banca viene hackerata, perdete soldi. Quando gli ospedali vengono attaccati, le persone muoiono. Quando i voti vengono corretti digitalmente, la democrazia muore.</p>
+            
+            <h2>La Triade CIA: I Fondamenti</h2>
+            
+            <h3>Confidentiality (Riservatezza)</h3>
+            <p>I vostri dati rimangono privati e accessibili solo a chi è autorizzato. Quando hackers accedono all'email della banca, violano la confidenzialità.</p>
+            
+            <h3>Integrity (Integrità)</h3>
+            <p>I vostri dati non vengono alterati senza autorizzazione. Se un hacker cambia un trasferimento bancario da $100 a $1000, ha violato l'integrità.</p>
+            
+            <h3>Availability (Disponibilità)</h3>
+            <p>I servizi rimangono disponibili quando sono necessari. Se hackers lanciato un DDoS attack (bombardamento di richieste) che abbatte un sito, violano la disponibilità.</p>
+
+            <div class="highlight-box">
+                <h4>🔐 La Piramide di Sicurezza</h4>
+                <p>Se uno di questi tre è compromesso, il sistema è fragile. Un'azienda potrebbe avere ottima riservatezza ma facilmente hackerabile (scarsa integrità). Un sistema potrebbe essere disponibile ma con dati esposti (scarsa riservatezza).</p>
+            </div>
+
+            <h2>Minacce Comuni</h2>
+            
+            <h3>Phishing</h3>
+            <p>Email o messaggi che fingono essere da un'organizzazione affidabile. Dicono che il vostra account è compromesso, portando a un link che appare identico a quello reale, ma è falso. Quando digitate la password, il hacker la possiede.</p>
+            
+            <h3>Malware</h3>
+            <p>Software malevolo che viene installato sul dispositivo sia tramite email allegato, download sospetto, o sito compromesso. Una volte installato, il malware può rubare dati, controllare il dispositivo, o chiedere riscatto (ransomware).</p>
+            
+            <h3>Man-in-the-Middle (MITM)</h3>
+            <p>Un attaccante intercetta la comunicazione tra due parti (es: voi e una banca). Se non avete crittografia (HTTPS), l'attacker può leggere tutto – incluse password e numeri di carta di credito.</p>
+            
+            <h3>Brute Force</h3>
+            <p>Un computer tenta automaticamente ogni combinazione possibile di password. Una password "123456" viene hackerata in microsecondi. Anche "password1" potrebbe richiedere solo pochi giorni.</p>
+            
+            <h3>SQL Injection</h3>
+            <p>Un attattaccante inserisce comandi malevoli in un form web. Se il sito non protegge adeguatamente, il hacker può accedere al database intero.</p>
+
+            <h2>Protezione di Base: Quello Che Tutti Dovrebbero Fare</h2>
+            
+            <h3>1. Password Robuste e Uniche</h3>
+            <ul>
+                <li>Almeno 12 caratteri</li>
+                <li>Lettere maiuscole, minuscole, numeri, simboli</li>
+                <li>Unica per ogni servizio (il gestore di password aiuta)</li>
+                <li>Evitate informazioni personali e parole comuni</li>
+            </ul>
+            
+            <h3>2. Autenticazione Multi-Fattore (MFA)</h3>
+            <p>Anche se qualcuno ha la vostra password, non può accedere senza il secondo fattore:</p>
+            <ul>
+                <li>App di autenticazione (Google Authenticator, Authy)</li>
+                <li>SMS (vulnerabile, ma meglio di niente)</li>
+                <li>Chiavi di sicurezza hardware (più sicure)</li>
+                <li>Biometria (fingerprint, riconoscimento facciale)</li>
+            </ul>
+            
+            <h3>3. Aggiornamenti Regolari</h3>
+            <p>I patch di sicurezza chiudono vulnerabilità note. Ignorarli è come lasciare una porta aperta.</p>
+            
+            <h3>4. Software Antivirus</h3>
+            <p>Rileva e rimuove malware. Non è infallibile, ma è meglio avere protezione.</p>
+            
+            <h3>5. VPN (Virtual Private Network)</h3>
+            <p>Su Wi-Fi pubblico (café, aeroporto), una VPN crittografa il vostro traffico. Previene MITM attacks.</p>
+
+            <h2>Crittografia: La Fortezza Digitale</h2>
+            
+            <h3>Come Funziona?</h3>
+            <p>La crittografia trasforma dati leggibili in codice illeggibile usando una chiave matematica. Solo chi ha la chiave può decodificare.</p>
+            
+            <h3>Tipi di Crittografia</h3>
+            <p><strong>Simmetrica:</strong> Stessa chiave per crittografar e decrittografare (veloce, ma condividere la chiave è pericoloso)</p>
+            <p><strong>Asimmetrica:</strong> Due chiavi – una pubblica e una privata (lenta, ma elegante per sicurezza)</p>
+            
+            <h3>HTTPS e SSL/TLS</h3>
+            <p>Quando vedete il lucchetto e "https://" in un URL, significa il sito usa crittografia per proteggere la comunicazione.</p>
+
+            <h2>Minacce Avanzate</h2>
+            
+            <h3>Zero-Day Exploits</h3>
+            <p>Vulnerabilità che gli sviluppatori non conoscono ancora. Gli hacker ne traggono vantaggio prima che possano essere patchati.</p>
+            
+            <h3>APT (Advanced Persistent Threat)</h3>
+            <p>Attacchi sofisticati, spesso patrocinati da stati-nazione, che rimangono nascosti nel vostro sistema per mesi. Rubano informazioni continuamente.</p>
+            
+            <h3>Ransomware</h3>
+            <p>Malware che crittografa i vostri file e chiede denaro per la chiave. Ospedali, scuole, e aziende hanno perso milioni.</p>
+
+            <div class="highlight-box">
+                <h4>⚠️ Il Costo della Negligenza</h4>
+                <p>Nel 2021, i costi globali del cybercrime sono stati stimati a 6 trilioni di dollari. Un singolo attacco ransomware può costare a un'azienda milioni.</p>
+            </div>
+
+            <h2>Cybersicurezza Aziendale</h2>
+            
+            <h3>Responsabilità delle Aziende</h3>
+            <ul>
+                <li>✅ Proteggere i dati dei clienti</li>
+                <li>✅ Informare in caso di violazione</li>
+                <li>✅ Implementare sicurezza per design</li>
+                <li>✅ Formare dipendenti</li>
+                <li>✅ Test di penetrazione regolare</li>
+            </ul>
+            
+            <h3>Quando Appare una Violazione</h3>
+            <p>Da quando è stato implementato il GDPR in Europa, le aziende devono notificare i clienti entro 72 ore di una violazione. Una comunicazione onesta è ancora il modo migliore.</p>
+
+            <h2>Il Vostro Ruolo</h2>
+            
+            <h3>Consigli Immediati</h3>
+            <ul>
+                <li>✅ Non cliccate su link in email sospette</li>
+                <li>✅ Verificate gli URL avant di inserire credenziali</li>
+                <li>✅ Usate una password diversa per ogni servizio importante</li>
+                <li>✅ Abilitate MFA dove possibile</li>
+                <li>✅ Non condividete screenshout di email o messaggi private</li>
+                <li>✅ Aggiornate regolarmente i vostri dispositivi</li>
+            </ul>
+
+            <h2>Conclusione: Un'Arma a Doppio Taglio</h2>
+            <p>La tecnologia che permette così tante cose meravigliose – comunicazione globale, accesso all'informazione, comodità – è la stessa che consente criminalità massiccia. La cybersicurezza non è paranoia; è consapevolezza responsa civile.</p>
+            
+            <p>In un mondo sempre più connesso, proteggere la vostra fortezza digitale protegge anche quella degli altri. Un computer infetto nel vostro blocco potrebbe essere hackerato per attaccare i vostri vicini, le vostre banche, i vostri ospedali. La sicurezza è condivisa.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
