@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio professionale di Matteo Nitrati - Studente informatico, PCTO e educazione civica">
+    <meta name="description"
+        content="Portfolio professionale di Matteo Nitrati - Studente informatico, PCTO e educazione civica">
     <meta name="author" content="Matteo Nitrati">
     <title>Portfolio · Matteo Nitrati</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous">
 
     <style>
-        *, *::before, *::after {
-            margin: 0; padding: 0;
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
@@ -87,7 +95,21 @@
             color: inherit;
         }
 
-        p, li, span, div, h1, h2, h3, h4, h5, h6, a, label, td, th, blockquote {
+        p,
+        li,
+        span,
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        a,
+        label,
+        td,
+        th,
+        blockquote {
             color: inherit;
         }
 
@@ -99,7 +121,7 @@
             right: -15%;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(79,126,255,0.08) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(79, 126, 255, 0.08) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -111,7 +133,7 @@
             left: -15%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.06) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
@@ -264,7 +286,9 @@
         section::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 1px;
             background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
         }
@@ -646,8 +670,13 @@
         }
 
         /* ── SECTIONS HIDDEN ── */
-        .screen { display: none; }
-        .screen.active { display: block; }
+        .screen {
+            display: none;
+        }
+
+        .screen.active {
+            display: block;
+        }
 
         /* ── FOOTER ── */
         footer {
@@ -669,27 +698,74 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            section { padding: 2rem 1.5rem; border-radius: var(--radius-lg); }
-            .profile-header { grid-template-columns: 1fr; }
-            .pcto-gallery { grid-template-columns: 1fr 1fr; }
+            section {
+                padding: 2rem 1.5rem;
+                border-radius: var(--radius-lg);
+            }
+
+            .profile-header {
+                grid-template-columns: 1fr;
+            }
+
+            .pcto-gallery {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 680px) {
-            .header-inner { flex-wrap: wrap; gap: 0.75rem; }
-            nav { width: 100%; justify-content: center; }
-            nav ul { gap: 0; flex-wrap: wrap; justify-content: center; }
-            section { padding: 1.5rem 1.25rem; }
-            section h2 { font-size: 1.6rem; }
-            .pcto-gallery { grid-template-columns: 1fr; }
-            .profile-stat-row { gap: 1.25rem; }
-            main { padding: 1.5rem 1rem 3rem; }
-            .header-actions { width: 100%; justify-content: center; }
+            .header-inner {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav ul {
+                gap: 0;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            section {
+                padding: 1.5rem 1.25rem;
+            }
+
+            section h2 {
+                font-size: 1.6rem;
+            }
+
+            .pcto-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-stat-row {
+                gap: 1.25rem;
+            }
+
+            main {
+                padding: 1.5rem 1rem 3rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
         }
 
         /* ── ANIM ── */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .screen.active section,
@@ -698,326 +774,358 @@
             animation: fadeUp 0.4s ease both;
         }
 
-        section:nth-child(2) { animation-delay: 0.05s; }
-        section:nth-child(3) { animation-delay: 0.1s; }
+        section:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        section:nth-child(3) {
+            animation-delay: 0.1s;
+        }
     </style>
 </head>
+
 <body>
     <!-- header  -->
-<header>
-    <div class="header-inner">
-        <a class="logo" href="#autobiografia">
-            <span class="logo-badge">M.N</span>
-            <span class="logo-name">Portfolio</span>
-        </a>
+    <header>
+        <div class="header-inner">
+            <a class="logo" href="#autobiografia">
+                <span class="logo-badge">M.N</span>
+                <span class="logo-name">Portfolio</span>
+            </a>
 
-        <nav>
-            <ul>
-                <li><a href="#autobiografia">Autobiografia</a></li>
-                <li><a href="#scuola">Scuola</a></li>
-                <li><a href="#pcto">PCTO</a></li>
-                <li><a href="#professionale">Professionale</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="#autobiografia">Autobiografia</a></li>
+                    <li><a href="#scuola">Scuola</a></li>
+                    <li><a href="#pcto">PCTO</a></li>
+                    <li><a href="#professionale">Professionale</a></li>
+                </ul>
+            </nav>
 
-        <div class="header-actions">
-            <span id="linkFeedback">✓ Copiato!</span>
-            <button class="share-btn" id="shareLinkBtn">
-                <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Condividi
-            </button>
-            <button class="submit-btn" id="loginBtn">
-                <i class="fas fa-user" style="margin-right:6px;"></i>Login
-            </button>
+            <div class="header-actions">
+                <span id="linkFeedback">✓ Copiato!</span>
+                <button class="share-btn" id="shareLinkBtn">
+                    <i class="fas fa-share-nodes" style="margin-right:6px;"></i>Condividi
+                </button>
+                <button class="submit-btn" id="loginBtn">
+                    <i class="fas fa-user" style="margin-right:6px;"></i>Login
+                </button>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<main>
+    <main>
 
-    <!-- ── AUTOBIOGRAFIA ── -->
-    <section id="autobiografia" class="screen active">
-        <div class="section-label">01 — chi sono</div>
-        <h2>Autobiografia</h2>
+        <!-- ── AUTOBIOGRAFIA ── -->
+        <section id="autobiografia" class="screen active">
+            <div class="section-label">01 — chi sono</div>
+            <h2>Autobiografia</h2>
 
-        <div class="profile-header">
-            <div class="profile-avatar-wrap">
-                <div class="profile-avatar-ring">
-                    <div class="profile-avatar-inner">
-                        <img
-                            src="https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fa3adbcd3-b8de-4a71-b4a6-db9a01cbc576/watermark:F/width:655?csig=AAAAAAAAAAAAAAAAAAAAALeKvpMHDGtloeAzlK4GLmeYLFImKGwWSaqC8wLrjWIi&exp=1774022955&osig=AAAAAAAAAAAAAAAAAAAAAB5OuR6umHZmd8hB594lk96xVsc2RwqzD3IbfAM0bobD&signer=media-rpc&x-canva-quality=screen"
-                            alt="img/fototessera.jpg">
+            <div class="profile-header">
+                <div class="profile-avatar-wrap">
+                    <div class="profile-avatar-ring">
+                        <div class="profile-avatar-inner">
+                            <img src="https://media.canva.com/v2/image-resize/format:JPG/height:800/quality:92/uri:ifs%3A%2F%2FM%2Fa3adbcd3-b8de-4a71-b4a6-db9a01cbc576/watermark:F/width:655?csig=AAAAAAAAAAAAAAAAAAAAALeKvpMHDGtloeAzlK4GLmeYLFImKGwWSaqC8wLrjWIi&exp=1774022955&osig=AAAAAAAAAAAAAAAAAAAAAB5OuR6umHZmd8hB594lk96xVsc2RwqzD3IbfAM0bobD&signer=media-rpc&x-canva-quality=screen"
+                                alt="img/fototessera.jpg">
+                        </div>
+                    </div>
+                    <div class="profile-status"></div>
+                </div>
+
+                <div>
+                    <div class="profile-role">STUDENTE INFORMATICO · 19 ANNI</div>
+                    <div class="profile-name">Matteo Nitrati</div>
+
+                    <p class="citazione">"Non esiste competenza senza passione, né cittadinanza senza coscienza."</p>
+
+                    <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem;">
+                        Studente informatico, volontario e atleta (ora arbitro). Appassionato di tecnologia, viaggi e
+                        crescita personale.
+                    </p>
+
+                    <div style="margin-bottom:0.75rem;">
+                        <div
+                            style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">
+                            Chi sono</div>
+                        <span class="tag tag-accent">Curioso</span>
+                        <span class="tag tag-accent">Empatico</span>
+                        <span class="tag tag-accent">Determinato</span>
+                    </div>
+
+                    <div style="margin-bottom:0.75rem;">
+                        <div
+                            style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">
+                            Interessi</div>
+                        <span class="tag">Programmare</span>
+                        <span class="tag">Viaggiare</span>
+                        <span class="tag">Imparare</span>
+                    </div>
+
+                    <div>
+                        <div
+                            style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">
+                            Obiettivi</div>
+                        <span class="tag tag-teal">Crescita</span>
+                        <span class="tag tag-teal">Esperienze</span>
+                        <span class="tag tag-teal">Conoscenza</span>
+                    </div>
+
+                    <div class="profile-stat-row">
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">19</span>
+                            <span class="profile-stat-label">Anni</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">5+</span>
+                            <span class="profile-stat-label">Anni di coding</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-num">∞</span>
+                            <span class="profile-stat-label">Curiosità</span>
+                        </div>
                     </div>
                 </div>
-                <div class="profile-status"></div>
             </div>
+        </section>
 
-            <div>
-                <div class="profile-role">STUDENTE INFORMATICO · 19 ANNI</div>
-                <div class="profile-name">Matteo Nitrati</div>
+        <!-- ── SCUOLA ── -->
+        <section id="scuola" class="screen">
+            <div class="section-label">02 — percorso formativo</div>
+            <h2>Scuola · le radici</h2>
 
-                <p class="citazione">"Non esiste competenza senza passione, né cittadinanza senza coscienza."</p>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-scroll"></i></div>
+                    <h3>Italiano</h3>
+                    <p>Analisi testi poetici, produzione testi argomentativi, debate. Il mio elaborato migliore:
+                        <em>"Tema sul bullismo affrontato in secondo superiore."</em>
+                    </p>
+                </div>
 
-                <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem;">
-                    Studente informatico, volontario e atleta (ora arbitro). Appassionato di tecnologia, viaggi e crescita personale.
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <h3>Storia</h3>
+                    <p>Collegare passato e presente, imparare dagli errori passati per non ricommetterli nel futuro.</p>
+                </div>
+
+                <a href="informatica.html" class="card card-link">
+                    <div class="card-icon" style="background:var(--teal-soft); color:var(--teal);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Informatica <i class="fas fa-arrow-right"
+                            style="font-size:0.75rem; color:var(--accent); margin-left:6px;"></i></h3>
+                    <p>Programmazione in C#, HTML, CSS, JavaScript. Progetti di programmazione e sviluppo web.</p>
+                </a>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                    <h3>Sistemi e reti</h3>
+                    <p>Architetture di rete, gestione reti locali, connessioni internet e servizi come VPN.</p>
+                </div>
+
+                <a href="NITRATI_MATTEO_5B_edcivica/index.html" class="card card-link">
+                    <div class="card-icon" style="background:var(--teal-soft); color:var(--teal);">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Educazione civica <i class="fas fa-arrow-right"
+                            style="font-size:0.75rem; color:var(--accent); margin-left:6px;"></i></h3>
+                    <p>Pagina html che riassume i concetti chiave appresi durante il progetto di educazione civica, con
+                        focus su sicurezza online, privacy e cybersecurity.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- ── PCTO ── -->
+        <section id="pcto" class="screen">
+            <div class="section-label">03 — esperienze sul campo</div>
+            <h2>PCTO</h2>
+
+            <div class="pcto-card">
+                <div class="pcto-top">
+                    <div class="pcto-icon-box"><i class="fas fa-microchip"></i></div>
+                    <div>
+                        <div class="pcto-title">Informatica ed automazione — LOCCIONI</div>
+                        <p class="pcto-desc">Progettare da zero insieme ad altri compagni una macchina per testing e
+                            composizione di pacchi batteria.</p>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:1rem;">
+                    <div
+                        style="font-size:0.72rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">
+                        Soft skills</div>
+                    <span class="tag tag-accent">Teamwork</span>
+                    <span class="tag tag-accent">Affidabilità</span>
+                </div>
+
+                <div>
+                    <div
+                        style="font-size:0.72rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">
+                        Hard skills</div>
+                    <span class="tag tag-teal">C#</span>
+                    <span class="tag tag-teal">C</span>
+                    <span class="tag tag-teal">Java</span>
+                    <span class="tag tag-teal">php</span>
+                    <span class="tag tag-teal">HTML</span>
+                    <span class="tag tag-teal">CSS</span>
+                    <span class="tag tag-teal">Python</span>
+                    <span class="tag tag-teal">JavaScript</span>
+                </div>
+
+                <div class="pcto-gallery">
+                    <div class="pcto-img-wrap">
+                        <img src="https://images.loccioni.com/tmp/tt/0x0x0/media_thumbnail/1758198765_eae67fee43700fc18b00d3d7902824ad.jpg"
+                            alt="PCTO Loccioni 1" loading="lazy">
+                    </div>
+                    <div class="pcto-img-wrap">
+                        <img src="https://www.loccioni.com/wp-content/uploads/2025/05/096A3276-1400x933.jpg"
+                            alt="PCTO Loccioni 2" loading="lazy">
+                    </div>
+                    <div class="pcto-img-wrap">
+                        <img src="https://www.loccioni.com/wp-content/uploads/2025/05/096A6261-1400x933.jpg"
+                            alt="PCTO Loccioni 3" loading="lazy">
+                    </div>
+                </div>
+                <!-- link con icona per andare a vedere il sito della LOCCIONI -->
+                <a href="https://www.loccioni.com/it/" target="_blank" rel="noopener"
+                    style="display:inline-flex;align-items:center;margin-top:1.5rem;color:var(--accent) !important;text-decoration:none;font-weight:500;">
+                    <i class="fas fa-arrow-right" style="margin-right:6px;"></i>Visita l'impresa Loccioni.
+                </a>
+            </div>
+        </section>
+
+        <!-- ── PROFESSIONALE ── -->
+        <section id="professionale" class="screen">
+            <div class="section-label">05 — il mio futuro</div>
+            <h2>Area professionale</h2>
+
+            <div class="obiettivi-card">
+                <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1rem;">
+                    <div class="card-icon" style="margin-bottom:0;"><i class="fas fa-bullseye"></i></div>
+                    <h3 style="margin-bottom:0;">Obiettivi</h3>
+                </div>
+                <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1rem;">
+                    Desidero lavorare in un'azienda che mi valorizzasse per ciò che so fare e che mi aiutasse nel
+                    percorso di crescita formandomi, facendomi fare esperienze anche all'estero, visto che sono un tipo
+                    al quale piace molto viaggiare.
                 </p>
-
-                <div style="margin-bottom:0.75rem;">
-                    <div style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">Chi sono</div>
-                    <span class="tag tag-accent">Curioso</span>
-                    <span class="tag tag-accent">Empatico</span>
-                    <span class="tag tag-accent">Determinato</span>
-                </div>
-
-                <div style="margin-bottom:0.75rem;">
-                    <div style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">Interessi</div>
-                    <span class="tag">Programmare</span>
-                    <span class="tag">Viaggiare</span>
-                    <span class="tag">Imparare</span>
-                </div>
-
                 <div>
-                    <div style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">Obiettivi</div>
-                    <span class="tag tag-teal">Crescita</span>
-                    <span class="tag tag-teal">Esperienze</span>
-                    <span class="tag tag-teal">Conoscenza</span>
+                    <span class="tag">Ufficio di programmazione</span>
+                    <span class="tag">Frontman riparazioni estero</span>
+                    <span class="tag">Manutenzione software</span>
                 </div>
+            </div>
+            <!-- contatti -->
+            <div class="contatti-card">
+                <div
+                    style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--font-mono);">
+                    Contatti professionali</div>
 
-                <div class="profile-stat-row">
-                    <div class="profile-stat">
-                        <span class="profile-stat-num">19</span>
-                        <span class="profile-stat-label">Anni</span>
-                    </div>
-                    <div class="profile-stat">
-                        <span class="profile-stat-num">5+</span>
-                        <span class="profile-stat-label">Anni di coding</span>
-                    </div>
-                    <div class="profile-stat">
-                        <span class="profile-stat-num">∞</span>
-                        <span class="profile-stat-label">Curiosità</span>
+                <div class="contatti-row">
+                    <div class="contatti-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <div class="contatti-label">Email</div>
+                        <a href="mailto:nitratimatteo@gmail.com">nitratimatteo@gmail.com</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ── SCUOLA ── -->
-    <section id="scuola" class="screen">
-        <div class="section-label">02 — percorso formativo</div>
-        <h2>Scuola · le radici</h2>
-
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-scroll"></i></div>
-                <h3>Italiano</h3>
-                <p>Analisi testi poetici, produzione testi argomentativi, debate. Il mio elaborato migliore: <em>"Tema sul bullismo affrontato in secondo superiore."</em></p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-book"></i></div>
-                <h3>Storia</h3>
-                <p>Collegare passato e presente, imparare dagli errori passati per non ricommetterli nel futuro.</p>
-            </div>
-
-            <a href="informatica.html" class="card card-link">
-                <div class="card-icon" style="background:var(--teal-soft); color:var(--teal);">
-                    <i class="fas fa-code"></i>
+                <div class="contatti-row">
+                    <div class="contatti-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <div class="contatti-label">Telefono</div>
+                        <a href="tel:3914673307">391 467 3307</a>
+                    </div>
                 </div>
-                <h3>Informatica <i class="fas fa-arrow-right" style="font-size:0.75rem; color:var(--accent); margin-left:6px;"></i></h3>
-                <p>Programmazione in C#, HTML, CSS, JavaScript. Progetti di programmazione e sviluppo web.</p>
-            </a>
 
-            <div class="card">
-                <div class="card-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Sistemi e reti</h3>
-                <p>Architetture di rete, gestione reti locali, connessioni internet e servizi come VPN.</p>
-            </div>
-
-            <a href="educazionecivica.html" class="card card-link">
-                <div class="card-icon" style="background:var(--teal-soft); color:var(--teal);">
-                    <i class="fas fa-code"></i>
+                <div class="contatti-row">
+                    <div class="contatti-icon" style="background:rgba(225,48,108,0.12); color:#e1306c !important;">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <div class="contatti-label">Instagram</div>
+                        <a href="https://instagram.com/matteonitrati_" target="_blank"
+                            rel="noopener">@matteonitrati_</a>
+                    </div>
                 </div>
-                <h3>Educazione civica <i class="fas fa-arrow-right" style="font-size:0.75rem; color:var(--accent); margin-left:6px;"></i></h3>
-                <p>Pagina html che riassume i concetti chiave appresi durante il progetto di educazione civica, con focus su sicurezza online, privacy e cybersecurity.</p>
-            </a>
-        </div>
-    </section>
 
-    <!-- ── PCTO ── -->
-    <section id="pcto" class="screen">
-        <div class="section-label">03 — esperienze sul campo</div>
-        <h2>PCTO</h2>
-
-        <div class="pcto-card">
-            <div class="pcto-top">
-                <div class="pcto-icon-box"><i class="fas fa-microchip"></i></div>
-                <div>
-                    <div class="pcto-title">Informatica ed automazione — LOCCIONI</div>
-                    <p class="pcto-desc">Progettare da zero insieme ad altri compagni una macchina per testing e composizione di pacchi batteria.</p>
+                <div class="contatti-row">
+                    <div class="contatti-icon" style="background:rgba(24,119,242,0.12); color:#1877f2 !important;">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <div>
+                        <div class="contatti-label">Facebook</div>
+                        <a href="#" target="_blank" rel="noopener">Matteo Nitrati</a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div style="margin-bottom:1rem;">
-                <div style="font-size:0.72rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">Soft skills</div>
-                <span class="tag tag-accent">Teamwork</span>
-                <span class="tag tag-accent">Affidabilità</span>
-            </div>
+    </main>
 
-            <div>
-                <div style="font-size:0.72rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.5rem;font-family:var(--font-mono);">Hard skills</div>
-                <span class="tag tag-teal">C#</span>
-                <span class="tag tag-teal">C</span>
-                <span class="tag tag-teal">Java</span>
-                <span class="tag tag-teal">php</span>
-                <span class="tag tag-teal">HTML</span>
-                <span class="tag tag-teal">CSS</span>
-                <span class="tag tag-teal">Python</span>
-                <span class="tag tag-teal">JavaScript</span>
-            </div>
+    <footer>
+        <p>© 2026 <span>Matteo Nitrati</span> · Tutti i diritti riservati · v1.0.0 · <span id="updateDate"></span></p>
+    </footer>
+    <!-- script in java per i link di condivisione -->
+    <script>
+        'use strict';
 
-            <div class="pcto-gallery">
-                <div class="pcto-img-wrap">
-                    <img src="https://images.loccioni.com/tmp/tt/0x0x0/media_thumbnail/1758198765_eae67fee43700fc18b00d3d7902824ad.jpg" alt="PCTO Loccioni 1" loading="lazy">
-                </div>
-                <div class="pcto-img-wrap">
-                    <img src="https://www.loccioni.com/wp-content/uploads/2025/05/096A3276-1400x933.jpg" alt="PCTO Loccioni 2" loading="lazy">
-                </div>
-                <div class="pcto-img-wrap">
-                    <img src="https://www.loccioni.com/wp-content/uploads/2025/05/096A6261-1400x933.jpg" alt="PCTO Loccioni 3" loading="lazy">
-                </div>
-            </div>
-            <!-- link con icona per andare a vedere il sito della LOCCIONI -->
-            <a href="https://www.loccioni.com/it/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;margin-top:1.5rem;color:var(--accent) !important;text-decoration:none;font-weight:500;">
-                <i class="fas fa-arrow-right" style="margin-right:6px;"></i>Visita l'impresa Loccioni.
-            </a>
-        </div>
-    </section>
+        document.getElementById('updateDate').textContent =
+            new Date().toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
-    <!-- ── PROFESSIONALE ── -->
-    <section id="professionale" class="screen">
-        <div class="section-label">05 — il mio futuro</div>
-        <h2>Area professionale</h2>
+        const shareBtn = document.getElementById('shareLinkBtn');
+        const feedbackSpan = document.getElementById('linkFeedback');
 
-        <div class="obiettivi-card">
-            <div style="display:flex;align-items:center;gap:0.85rem;margin-bottom:1rem;">
-                <div class="card-icon" style="margin-bottom:0;"><i class="fas fa-bullseye"></i></div>
-                <h3 style="margin-bottom:0;">Obiettivi</h3>
-            </div>
-            <p style="color:var(--text-muted); font-size:0.92rem; margin-bottom:1rem;">
-                Desidero lavorare in un'azienda che mi valorizzasse per ciò che so fare e che mi aiutasse nel percorso di crescita formandomi, facendomi fare esperienze anche all'estero, visto che sono un tipo al quale piace molto viaggiare.
-            </p>
-            <div>
-                <span class="tag">Ufficio di programmazione</span>
-                <span class="tag">Frontman riparazioni estero</span>
-                <span class="tag">Manutenzione software</span>
-            </div>
-        </div>
-        <!-- contatti -->
-        <div class="contatti-card">
-            <div style="font-size:0.75rem;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1rem;font-family:var(--font-mono);">Contatti professionali</div>
-
-            <div class="contatti-row">
-                <div class="contatti-icon"><i class="fas fa-envelope"></i></div>
-                <div>
-                    <div class="contatti-label">Email</div>
-                    <a href="mailto:nitratimatteo@gmail.com">nitratimatteo@gmail.com</a>
-                </div>
-            </div>
-
-            <div class="contatti-row">
-                <div class="contatti-icon"><i class="fas fa-phone"></i></div>
-                <div>
-                    <div class="contatti-label">Telefono</div>
-                    <a href="tel:3914673307">391 467 3307</a>
-                </div>
-            </div>
-
-            <div class="contatti-row">
-                <div class="contatti-icon" style="background:rgba(225,48,108,0.12); color:#e1306c !important;">
-                    <i class="fab fa-instagram"></i>
-                </div>
-                <div>
-                    <div class="contatti-label">Instagram</div>
-                    <a href="https://instagram.com/matteonitrati_" target="_blank" rel="noopener">@matteonitrati_</a>
-                </div>
-            </div>
-
-            <div class="contatti-row">
-                <div class="contatti-icon" style="background:rgba(24,119,242,0.12); color:#1877f2 !important;">
-                    <i class="fab fa-facebook"></i>
-                </div>
-                <div>
-                    <div class="contatti-label">Facebook</div>
-                    <a href="#" target="_blank" rel="noopener">Matteo Nitrati</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    <p>© 2026 <span>Matteo Nitrati</span> · Tutti i diritti riservati · v1.0.0 · <span id="updateDate"></span></p>
-</footer>
-<!-- script in java per i link di condivisione -->
-<script>
-'use strict';
-
-document.getElementById('updateDate').textContent =
-    new Date().toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
-
-const shareBtn = document.getElementById('shareLinkBtn');
-const feedbackSpan = document.getElementById('linkFeedback');
-
-function copyToClipboard(text) {
-    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
-    return new Promise((resolve, reject) => {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
-        document.body.appendChild(ta);
-        ta.focus(); ta.select();
-        try { document.execCommand('copy') ? resolve() : reject(); }
-        catch(e) { reject(e); }
-        finally { ta.remove(); }
-    });
-}
-
-shareBtn.addEventListener('click', () => {
-    copyToClipboard(location.href).then(() => {
-        feedbackSpan.style.display = 'inline';
-        shareBtn.style.background = 'var(--teal)';
-        setTimeout(() => {
-            feedbackSpan.style.display = 'none';
-            shareBtn.style.background = '';
-        }, 2500);
-    });
-});
-
-const screens = document.querySelectorAll('.screen');
-
-function showSection(id) {
-    screens.forEach(s => {
-        s.classList.toggle('active', s.id === id);
-    });
-}
-
-document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-            e.preventDefault();
-            const id = href.substring(1);
-            showSection(id);
-            history.replaceState(null, null, '#' + id);
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+            return new Promise((resolve, reject) => {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
+                document.body.appendChild(ta);
+                ta.focus(); ta.select();
+                try { document.execCommand('copy') ? resolve() : reject(); }
+                catch (e) { reject(e); }
+                finally { ta.remove(); }
+            });
         }
-    });
-});
 
-if (location.hash) showSection(location.hash.substring(1));
+        shareBtn.addEventListener('click', () => {
+            copyToClipboard(location.href).then(() => {
+                feedbackSpan.style.display = 'inline';
+                shareBtn.style.background = 'var(--teal)';
+                setTimeout(() => {
+                    feedbackSpan.style.display = 'none';
+                    shareBtn.style.background = '';
+                }, 2500);
+            });
+        });
 
-window.addEventListener('hashchange', () => {
-    if (location.hash) showSection(location.hash.substring(1));
-});
-</script>
+        const screens = document.querySelectorAll('.screen');
+
+        function showSection(id) {
+            screens.forEach(s => {
+                s.classList.toggle('active', s.id === id);
+            });
+        }
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const id = href.substring(1);
+                    showSection(id);
+                    history.replaceState(null, null, '#' + id);
+                }
+            });
+        });
+
+        if (location.hash) showSection(location.hash.substring(1));
+
+        window.addEventListener('hashchange', () => {
+            if (location.hash) showSection(location.hash.substring(1));
+        });
+    </script>
 </body>
+
 </html>

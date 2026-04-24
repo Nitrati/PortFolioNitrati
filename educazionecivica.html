@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Educazione civica e cittadinanza digitale — Portfolio Matteo Nitrati">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Educazione Civica · Portfolio Matteo Nitrati</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a class="logo" href="index.html">
+                <span class="logo-badge">M.N</span>
+                <span class="logo-name">Portfolio</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#autobiografia">Su di me</a></li>
+                    <li><a href="informatica.html">Informatica</a></li>
+                    <li><a href="educazionecivica.html" class="active">Ed. Civica</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn" id="shareBtn">
+                    <i class="fas fa-share-nodes"></i> Condividi
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section">
+            <span class="label">03 — educazione civica</span>
+            <h1 class="section-title">Cittadinanza digitale</h1>
+            <p class="section-sub">Diritti, doveri e competenze per navigare in modo consapevole e responsabile nel mondo digitale.</p>
+
+            <div class="card-grid">
+
+                <article class="card">
+                    <div class="card-icon amber">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <h3>Sicurezza e privacy</h3>
+                    <p>Concetti chiave di cybersecurity, protezione dei dati personali e navigazione sicura nel rispetto della propria identità digitale.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon teal">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Uso consapevole di internet</h3>
+                    <p>Uso responsabile delle tecnologie, rispetto delle regole digitali e valutazione critica delle fonti e delle informazioni in rete.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Cittadinanza digitale</h3>
+                    <p>Unire diritti e doveri online: partecipare con rispetto, tutelare l'inclusione e usare la rete come spazio di crescita collettiva.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon rose">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Libertà di espressione</h3>
+                    <p>Analisi del rapporto tra libertà di espressione e sicurezza, tra mondo reale e virtuale: diritti, limiti e responsabilità nella comunicazione online.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon indigo">
+                        <i class="fas fa-magnifying-glass"></i>
+                    </div>
+                    <h3>Propaganda e fake news</h3>
+                    <p>Propaganda e controllo dell'informazione nel Novecento, censura e libertà di stampa, strumenti di fact-checking per riconoscere la disinformazione online.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon amber">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Cybersicurezza</h3>
+                    <p>Principi della triade CIA (Confidenzialità, Integrità, Disponibilità), autenticazione, crittografia, firewall e proxy. Riconoscere e prevenire minacce comuni come phishing e malware.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon teal">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>GDPR e normativa</h3>
+                    <p>Sicurezza e privacy come requisiti organizzativi, gestione del rischio informatico, impatti dei data breach e normativa europea sulla protezione dei dati personali.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3>Identità digitale</h3>
+                    <p>Gestione consapevole della propria identità digitale: password robuste, autenticazione a più fattori (MFA) e comprensione delle implicazioni di privacy nei contesti digitali.</p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon rose">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Netiquette e comunicazione</h3>
+                    <p>Registri e lessico della comunicazione in rete, scrittura argomentativa, comportamenti corretti nei contesti digitali e rispetto della persona contro l'hate speech.</p>
+                </article>
+
+            </div>
+
+            <a class="back-link" href="index.html">
+                <i class="fas fa-arrow-left"></i> Torna al portfolio
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p>Educazione Civica</p>
+    </footer>
+
+    <script>
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({ title: 'Educazione Civica · Portfolio Matteo Nitrati', url: location.href });
+            } else {
+                navigator.clipboard.writeText(location.href).then(() => alert('Link copiato negli appunti!'));
+            }
+        });
+    </script>
+
+</body>
+</html>
