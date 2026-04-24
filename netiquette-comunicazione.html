@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Netiquette e Comunicazione — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Netiquette e Comunicazione · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-comments"></i> Netiquette e Comunicazione
+            </span>
+            <h1 class="article-title">L'Etichetta del Mondo Digitale</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Cosa è la Netiquette?</h2>
+            <p>La "netiquette" (etichetta di Internet) è l'insieme di regole non scritte che governano il comportamento civile online. È semplicemente cortesia – il modo giusto di interagire con gli altri quando siete dietro uno schermo. Non è una legge, ma è una questione di civiltà.</p>
+            
+            <h2>Perché La Netiquette Importa?</h2>
+            
+            <h3>L'Effetto di Desinibizione Online</h3>
+            <p>C'è un fenomeno psicologico chiamato "disinhibition effect" – le persone dicono cose online che mai direbbero di persona. Perché?</p>
+            <ul>
+                <li>Anonimità (nessuno sa è davvero)</li>
+                <li>Distanza fisica (non vedete la reazione di qualcuno)</li>
+                <li>Asincronicità (non rispondono immediatamente)</li>
+                <li>Mancanza di autorità (nessuno vi sorveglia)</li>
+            </ul>
+
+            <p>Ma quello che dite online rimane. E ha conseguenze reali – su come altre persone vi vedono, sulla vostra reputazione, e sulla psiche di coloro che leggono quella crudeltà.</p>
+
+            <div class="highlight-box">
+                <h4>🧠 La Ricerca Scientifica</h4>
+                <p>Uno studio del Stanford Internet Observatory su cyberbullismo mostra che una singola piattaforma di insulti online può traurmatizzare una persona come il bullismo fisico.</p>
+            </div>
+
+            <h2>I Registri della Comunicazione Online</h2>
+            
+            <h3>Formale vs. Informale</h3>
+            <p>Der contesto determina il registro:</p>
+            
+            <p><strong>Email Professionale:</strong> "Caro Signor Rossi, vorrei discutere il progetto..."</p>
+            <p><strong>Email Amichevole:</strong> "Ehi! Come stai? Volevo parlarti di..."</p>
+            <p><strong>Messaggi Informali (WhatsApp):</strong> "Ey! Che dici? Parliamo di..."</p>
+            <p><strong>Social Media Pubblico:</strong> Dipende dal vostro pubblico – potrebbe essere formale se siete un professionista, informale se siete tra amici.</p>
+            
+            <h3>Errori Comuni di Registro</h3>
+            <ul>
+                <li>❌ Troppo formale quando siete tra amici (sembra ficcanaso)</li>
+                <li>❌ Troppo informale in contesti professionali (sembra unprofessionale)</li>
+                <li>❌ Usare slang che il vostro pubblico non capisce</li>
+                <li>❌ Mescolare registri ridiculosamente ("Caro Sir, yo we gotta talk")</li>
+            </ul>
+
+            <h2>La Scrittura Argomentativa Online</h2>
+            
+            <h3>Come Discutere in Rete</h3>
+            <p>Molti dibattiti online degenerano in flame wars e insulti. Una migliore argomentazione richiede:</p>
+            
+            <h3>1. Leggete Attentamente</h3>
+            <p>Prima di rispondere, assicuratevi di capire l'argomento della persona. Troppi attaccano uno "uomo di paglia" – una versione distorta dell'argomento.</p>
+            
+            <h3>2. Separate l'Argomento dalla Persona</h3>
+            <p>Se qualcuno dice "Penso che il cambiamento climatico non è causato dall'uomo," voi POTETE:</p>
+            <ul>
+                <li>✅ Dire "Ci sono studi peer-reviewed che dimostrano..."</li>
+                <li>✅ Offrirvi di discutere ulteriormente</li>
+                <li>❌ Dire "Sei stupido se credi questo"</li>
+                <li>❌ Attaccare il loro carattere</li>
+            </ul>
+
+            <h3>3. Usate Fonti</h3>
+            <p>Se affermite un fatto, datemi una fonte. "Credevo che..." o "Ho letto una volta che..." non è sufficiente.</p>
+            
+            <h3>4. Ammetteté Errori</h3>
+            <p>Se avete torto, ammettilo. Non difendete una posizione inlogica solo per non perdere la faccia.</p>
+            
+            <h3>5. Riconoscere i Punti Validi dell'Altro</h3>
+            <p>"Mi piace il tuo punto su X, anche se non sono d'accordo su Y" mostra ragionevolezza.</p>
+
+            <h2>Hate Speech e Cyberbullismo</h2>
+            
+            <h3>Dove Finisce la Libe Espressione e Inizia l'Abuso?</h3>
+            <p>Questo è complicate. Ma generalmente:</p>
+            <ul>
+                <li>❌ Hate Speech: "La gente di [razza/religione/genere] è inferiore"</li>
+                <li>❌ Minacce: "Ti troverò e ti farò male"</li>
+                <li>❌ Bullismo coordinato: Un gruppo che attacca una persona</li>
+                <li>✅ Critica: "Quel politico ha linee politiche cattive perché..."</li>
+                <li>✅ Satira: Parodizzare qualcuno (generalment permesso)</li>
+            </ul>
+
+            <h3>Se Siete Vittime</h3>
+            <ul>
+                <li>✅ Segnalate a chi gestisce la piattaforma</li>
+                <li>✅ Bloccare o mutare chi vi molesta</li>
+                <li>✅ Documentate gli abusi (screenshot)</li>
+                <li>✅ Parlate con qualcuno di cui vi fidate</li>
+                <li>✅ In casi gravi, contattate la polizia</li>
+                <li>❌ Non rispondete agli haters (alimenta il fuoco)</li>
+                <li>❌ Non cercate vendetta online</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>⚠️ Sextortion e Ricatto Sessuale</h4>
+                <p>Se qualcuno minaccia di pubblicare immagini/video intimi se non pagate denaro o soddisfate le loro richieste – è un crimine. Non pagate. Contattatela polizia e la piattaforma. Questi criminali contano sul vostro silenzio.</p>
+            </div>
+
+            <h2>Empatia Digitale</h2>
+            
+            <h3>Ricordatevi che Dietro lo Schermo C'è una Persona Reale</h3>
+            <p>Questo suona ovvio, ma nella fretta della comunicazione online, dimentichiamo. La persona che riceve il vostro messaggio crudele sente male davvero.</p>
+            
+            <h3>La "Regola Aurea" Online</h3>
+            <p>Comunicate online come vorreste che altri comunicassero con voi. Se qualcuno vi insulta, sapete come fa male. Perché far male ad altri?</p>
+            
+            <h3>Praticare Empatia</h3>
+            <ul>
+                <li>✅ Pensate prima di cliccare "invia"</li>
+                <li>✅ Considerate che il texto non trasmette tono – puo' sembrare più rude di quanto intendevate</li>
+                <li>✅ Usate emoji o emoticon per chiarire il tono</li>
+                <li>✅ Rispondenta a commenti critici in modo educato</li>
+                <li>✅ Complimentate le persone quando meritano</li>
+            </ul>
+
+            <h2>Conflitti Digitali e Come Risolverli</h2>
+            
+            <h3>Quando Qualcuno Vi Offende Online</h3>
+            <ol>
+                <li><strong>Aspettate 24 ore before responding</strong> – La reazione istantanea è spesso arrabbiata</li>
+                <li><strong>Rilleggete il messaggio</strong> – Forse è stata male interpretazione</li>
+                <li><strong>Rispondente privatamente</strong> – Se possibile, non nel pubblico</li>
+                <li><strong>Siate calmi</strong> – Una risposta arrabbiata crea solo più conflitto</li>
+                <li><strong>Se non si risolve, dismissate</strong> – Non vale la pena perdere energia</li>
+            </ol>
+            
+            <h3>Quando Voi Offensive Qualcuno</h3>
+            <p>Se vi rendete conto di aver offeso qualcuno:</p>
+            <ol>
+                <li><strong>Scusatevi sinceramente</strong> – Non "Mi scuso se ti sei offeso" (è pseudo-scuse)</li>
+                <li><strong>Spiegate cosa avete imparato</strong> – "Ho compreso perché quel il mio commento era offensivo"</li>
+                <li><strong>Impegnatevi a fare meglio</strong> – Non è una promessa vuota</li>
+                <li><strong>Lasciate andare</strong> – Non continuate a scusarvi; è ingombrante</li>
+            </ol>
+
+            <h2>La Cancellazione Vs. La Critica Costruttiva</h2>
+            
+            <h3>Quando è Appropriato "Cancellare" Qualcuno?</h3>
+            <p>La cancel culture è controversial. Dovrebbe esser riservata ai casi gravi – abusi sessuali confermati, discorsi d'odio ripetuti, crimini. Non per un tweet sfortunato dieci anni fa.</p>
+            
+            <h3>Una Critica più Equilibrata</h3>
+            <ul>
+                <li>✅ Sottolineare comportamento/affermazioni specifiche</li>
+                <li>✅ Permettere a qualcuno l'opportunità di rispondere</li>
+                <li>✅ Permettere la crescita e il pentimento</li>
+                <li>❌ Scavare in ogni errore passato della persona</li>
+                <li>❌ Rifiutare categoricamente qualsiasi redenzione</li>
+            </ul>
+
+            <h2>Buona Netiquette: Il Codice</h2>
+            <ul>
+                <li>✅ Leggerete due volte prima di inviare</li>
+                <li>✅ Trattate gli altri con rispetto</li>
+                <li>✅ Condividete informazioni verificate</li>
+                <li>✅ Usate un linguaggio appropriato al contesto</li>
+                <li>✅ Rispettate la privacy altrui</li>
+                <li>✅ Siate consapevoli del vostro tono</li>
+                <li>✅ Ammettete errori quando fate</li>
+                <li>😔 Non isultatei per opinioni diverse</li>
+                <li>❌ Non taggare persone in contenuti indesiderato</li>
+                <li>❌ Non condividete screenshoot private senza permesso</li>
+                <li>❌ Non perpetuate stereotipi</li>
+            </ul>
+
+            <h2>Conclusione: Internet è Uno Specchio</h2>
+            <p>Come vi comportate online riflette chi siete. Se siete crudeli online, siete crudeli (o almeno, pensate di poter esserlo senza conseguenze). Se siete gentili online, potete contribuire a rendere internet un luogo migliore.</p>
+            
+            <p>La netiquette non è rigida – si evolve con i nostri valori collettivi. Ma la fondazione rimane la stessa: empatia, honestà, e rispetto. Quando l'internet ha iniziato, la gente pensava fosse uno spazio liberatore dove le regole ordinarie non si applicavano. Ma ora comprendiamo che è proprio il contrario – è un profondo riflesso della società umana, con tutte le nostre virtù e vizi. Fate la vostra parte nel renderlo civile.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

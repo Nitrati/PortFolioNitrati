@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Libertà di Espressione — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Libertà di Espressione · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-bullhorn"></i> Libertà di Espressione
+            </span>
+            <h1 class="article-title">Il Diritto di Parlare nel Modo Responsabile</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Cos'è la Libertà di Espressione?</h2>
+            <p>La libertà di espressione è il diritto fondamentale di comunicare le nostre idee, opinioni, credenze e informazioni senza paura di repressione, censura o danno legale. È uno dei pilastri di una società democratica. Ma con grandi libertà vengono grandi responsabilità.</p>
+            
+            <h2>La Storia</h2>
+            
+            <h3>Le Origini Storiche</h3>
+            <p>Il concetto moderno di libertà di espressione nasce durante l'Illuminismo. Nel 1776, la Dichiarazione di Indipendenza americana parla di "diritti inalienabili." Nel 1789, la Dichiarazione dei Diritti dell'Uomo e del Cittadino francese garantisce la "libertà di opinione."</p>
+            
+            <p>Tuttavia, per gran parte della storia, questo diritto era teoretico. Le dittature hanno messo al silenzio i dissidenti, bruciato libri, e imprigionato giornalisti. Anche nelle democrazie, minoranza e donne erano spesso censurate.</p>
+
+            <h3>Internet: L'Amplificatore Globale</h3>
+            <p>Internet ha trasformato la libertà di espressione. Mentre una volta solo i media corporativi potevano raggiungere migliaia di persone, oggi chiunque con uno smartphone può diventare un giornalista, attivista o commentatore politico. Questo è potente – ma anche pericoloso.</p>
+
+            <div class="highlight-box">
+                <h4>🎤 Una Citazione Rilevante</h4>
+                <p>"Con grande potere viene grande responsabilità" – Ben Parker (Spider-Man). Questa non è solo una citazione fittizia; è una verità filosofica applicabile a internet.</p>
+            </div>
+
+            <h2>I Limiti della Libertà di Espressione</h2>
+            
+            <h3>La Differenza Teorica</h3>
+            <p>Molti giovani credono che la libertà di espressione significhi "posso dire qualsiasi cosa senza conseguenze." Non è vero. Quasi tutte le società democr democratiche riconoscono limiti a questa libertà:</p>
+            
+            <h3>1. Incitamento alla Violenza</h3>
+            <p>Non potete dire "Andate e aggredite quella persona." Questo non è protezione della libertà di espressione; è incitamento criminale.</p>
+            
+            <h3>2. Calunnia e Diffamazione</h3>
+            <p>Affermare fatti falsi su una persona al fine di danneggiarla è illegale. Se dite che il vostro professore è un criminale senza prove, lui/lei potrebbe farvi causa civile.</p>
+            
+            <h3>3. Hate Speech</h3>
+            <p>Molte nazioni (particolarmente in Europa) hanno leggi contro hate speech – discorsi che discriminano basati su religione, razza, genere, orientamento sessuale. L'idea è che some "libertà" danneggiano la libertà di altri.</p>
+            
+            <h3>4. Oscenità e Contenuti Sessuali di Minori</h3>
+            <p>La pornografia infantile non è protezione della libertà di espressione; è sfruttamento e abuso di bambini.</p>
+            
+            <h3>5. Segreti di Stato e Sicurezza Nazionale</h3>
+            <p>Se che siete dipendenti di un'agenzia governativa e pubblicate segreti militari che mettono in pericolo agenti, potete essere criminalmente perseguiti.</p>
+
+            <h2>I Gradi di Grigio: Casi Complessi</h2>
+            
+            <h3>Dissenso Politico</h3>
+            <p>Criticare un governo, un leader politico, o una politica è protetto. Questo è il cuore della libertà di espressione. Tuttavia, se le vostre critiche includono false affermazioni fattuali, potreste affrontare conseguenze legali.</p>
+            
+            <h3>Satira e Ironia</h3>
+            <p>La satira – critica attraverso l'umorismo – è generalmente protetta, anche se è sciocca o offensiva.</p>
+            
+            <h3>Trigger e Sensitive Topics</h3>
+            <p>Solo perché siete legalmente autorizzati a dire qualcosa non significa che dovreste. Considerando l'impatto emozionale delle vostre parole è civiltà, non censura.</p>
+
+            <h2>Libertà di Espressione nel Mondo Reale vs. Digitale</h2>
+            
+            <h3>Le Conseguenze Digitali Permanenti</h3>
+            <p>Offline, puoi dire qualcosa in una riunione e, col tempo, le persone possono dimenticarlo. Online, rimane forever (o almeno finché internet esiste). Una foto stupida potrebbe tornare a causare danno 10 anni dopo.</p>
+            
+            <h3>Effetto Amplificazione</h3>
+            <p>Offline, se calumniate qualcuno al bar, pochi lo sentono. Online, quella stessa calunnia potrebbe raggiungere migliaia di persone in pochi secondi. Una guerra locale diventa una battaglia globale.</p>
+            
+            <h3>L'Anonimato Come Spada</h3>
+            <p>L'anonimato online può proteggere dissidenti in paesi dittatoriali. Può anche permetter ai troll di insultar chiunque senza conseguenze. È un'arma a doppio taglio.</p>
+
+            <div class="highlight-box">
+                <h4>⚠️ Il Problema della Cancel Culture</h4>
+                <p>La "cancel culture" è un fenomeno dove persone sono pubblicamente boicottate per dichiarazioni controverse. È legittima responsabilità civica o e una forma moderna di censura? La risposta dipende dal contesto, dalla gravità, e se la persona ha una possibilità di redemption.</p>
+            </div>
+
+            <h2>Censura Governativa vs. Moderazione Aziendale</h2>
+            
+            <h3>Governo</h3>
+            <p>Se un governo vi bandisce da internet per un'opinione o un commento, quello è una violazione della libertà d'espressione. Molti paesi (Russia, Cina, Iran) lo fanno regolarmente. In democrazia, questo è illegale.</p>
+            
+            <h3>Privati (Facebook, Twitter, YouTube, ecc.)</h3>
+            <p>Le piattaforme private hanno il diritto di moderare il contenuto secondo i loro community standards. Quando Twitter vieta Donald Trump, non è censura governativa – è una decisione commerciale. Anche se controvertible, è legale.</p>
+            
+            <p>Tuttavia, poiché queste piattaforme sono diventate l'equivalente digitale della piazza pubblica, c'è un dibattito crescente se dovrebbero avere responsabilità simile ai governi nella protezione della libertà di espressione.</p>
+
+            <h2>La Mia Voce Conta? Dilemmi Contemporanei</h2>
+            
+            <h3>Se Taccio, Consento?</h3>
+            <p>Un argomento è che se non esprimete le vostre opinioni, permettete a quelle sbagliate di dominare. C'è verità a questo. Le tirannie prosperano quando persone coscenziose restano silenziose.</p>
+            
+            <h3>Ma Anche il Rumore Conta</h3>
+            <p>Se tutti gridano, nessuno ascolta nulla. A volte il silenzio è potente. Sapere quando parlare e quando ascoltare è sapienza.</p>
+
+            <h2>Il Codice di Condotta della Libertà di Espressione</h2>
+            <ul>
+                <li>✅ Esercitate il vostro diritto di parlare su problemi che vi importano</li>
+                <li>✅ Fondate le vostre affermazioni in fatto, non in opinione non supportata</li>
+                <li>✅ Criticate le idee, non attaccate le persone</li>
+                <li>✅ Ascoltate attentamente chi è in disaccordo</li>
+                <li>✅ Ammettete se avete sbagliato</li>
+                <li>✅ Proteggete la libertà di espressione degli altri anche se non siete d'accordo</li>
+                <li>❌ Non diffamazione</li>
+                <li>❌ Non incitate alla violenza</li>
+                <li>❌ Non discriminate basato su identità</li>
+            </ul>
+
+            <h2>Conclusione: Un Diritto e una Responsabilità</h2>
+            <p>La libertà di espressione è uno dei diritti più preziosi di una società democratica. Ma è anche uno dei più facili da abusare. L'equilibrio è complicato – proteggere il diritto di minoranze di parlare contro maggioranze oppressive, mentre allo stesso tempo proteggerne da violenza, calunnia e propaganda.</p>
+            
+            <p>Come cittadini digitali, il vostro ruolo include sia parlare quando necessario che ascoltare con umiltà. Usate la vostra voce con saggezza. E proteggerla – la vostra e quella degli altri – per le generazioni future.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

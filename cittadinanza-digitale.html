@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cittadinanza Digitale — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Cittadinanza Digitale · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-users"></i> Cittadinanza Digitale
+            </span>
+            <h1 class="article-title">Diritti e Doveri Online</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Cosa Significa Essere Cittadino Digitale?</h2>
+            <p>La cittadinanza non è più limitata al territorio nazionale di uno stato. Viviamo in una società globale e interconnessa dove il nostro ruolo civico si estende anche allo spazio digitale. Un cittadino digitale è una persona che utilizza le tecnologie dell'informazione e della comunicazione in modo consapevole, responsabile e critico, esercitando i propri diritti nel rispetto dei doveri verso la comunità.</p>
+            
+            <h2>I Diritti del Cittadino Digitale</h2>
+
+            <h3>1. Diritto di Accesso</h3>
+            <p>Il diritto di accedere a internet e alle informazioni online è considerato sempre più come un diritto umano fondamentale. Le Nazioni Unite hanno riconosciuto l'accesso a internet come un diritto civile. Tuttavia, resta una disparità globale: miliardi di persone non hanno nemmeno accesso a una connessione internet stabile.</p>
+            
+            <h3>2. Diritto alla Privacy</h3>
+            <p>Avete il diritto a la privacy online – il diritto di controllare i vostri dati personali e sapere come vengono utilizzati. Questo diritto è garantito da leggi come il GDPR in Europa.</p>
+            
+            <h3>3. Diritto alla Proprietà Intellettuale</h3>
+            <p>Le vostre creazioni online – foto, testi, video – sono vostra proprietà. Nessuno dovrebbe poterle copiare o utilizzare senza il vostro permesso. Allo stesso tempo, dovete rispettare la proprietà intellettuale degli altri.</p>
+            
+            <h3>4. Diritto alla Libertà di Espressione</h3>
+            <p>Avete il diritto di esprimere le vostre opinioni online. Tuttavia, come nella vita reale, questo diritto ha limiti – non potete incitare violenza, calunniare, o diffondere contenuti sessualmente espliciti.</p>
+
+            <div class="highlight-box">
+                <h4>📜 La Dichiarazione ONU</h4>
+                <p>Nel 2016, il Consiglio dei Diritti Umani delle Nazioni Unite ha affermato che gli stessi diritti che le persone hanno offline devono essere protetti anche online – inclusi libertà di espressione, diritto di associazione e privacy.</p>
+            </div>
+
+            <h3>5. Diritto alla Sicurezza e all'Incolumità</h3>
+            <p>Avete diritto a una protezione dalla violenza, dall'abuso e dall'intimidazione online. Il cyberbullismo e le minacce online sono forme di abuso che violano questo diritto.</p>
+
+            <h3>6. Diritto alla Partecipazione Civica</h3>
+            <p>Internet vi permette di partecipare a processi democratici: firmare petizioni online, commentare su politiche pubbliche, organizzare comunità intorno a cause comuni, e votare in elezioni (in alcuni paesi).</p>
+
+            <h2>I Doveri del Cittadino Digitale</h2>
+
+            <h3>1. Dovere di Verificare le Informazioni</h3>
+            <p>Prima di condividere un'informazione, verificatela. Non essere complici nella diffusione di disinformazione. Controllate le fonti, cercate su snopes.com, fact-check.org, o consultate esperti nel campo.</p>
+            
+            <h3>2. Dovere di Rispettare la Privacy Altrui</h3>
+            <p>Come proteggete la vostra privacy, proteggerà quella degli altri. Non condividete foto di persone senza il loro permesso, non publicate informazioni personali di altri, e non hackeratevi l'uno l'altro.</p>
+            
+            <h3>3. Dovere di Comunicare Civilmente</h3>
+            <p>La civiltà non dovrebbe finire quando il nostro messaggio è dietro uno schermo. Treatate gli altri come vorreste essere trattati. Non alimentate i conflitti con insulti o hate speech.</p>
+            
+            <h3>4. Dovere di Rispettare la Proprietà Intellettuale</h3>
+            <p>Non copiate, non negate il credito, non plagiarizzate. Se usate il lavoro di qualcuno, attribuitelo adeguatamente.</p>
+            
+            <h3>5. Dovere di Segnalare e Opporsi all'Abuso</h3>
+            <p>Se vedete bullismo, discriminazione, contenuti terribili, o violazione di leggi online, dovete segnalarli. Non essere uno spettatore passivo di ingiustizia – attivate la vostra coscienza civica.</p>
+
+            <h2>L'Importanza dell'Accessibilità</h2>
+            <p>L'inclusione digitale è essenziale per una cittadinanza digitale vera. Questo significa:</p>
+            <ul>
+                <li>Assicurarsi che i contenuti siano accessibili a persone con disabilità (sottotitoli per video, descrizione alt per immagini)</li>
+                <li>Considerar che non tutti hanno accesso veloce a internet</li>
+                <li>Pensare a persone che parlano diverse lingue</li>
+                <li>Favorire la partecipazione di voci marginalizzate</li>
+            </ul>
+
+            <h2>Cittadinanza Digitale e Democrazia</h2>
+            
+            <h3>Il Ruolo Positivo di Internet</h3>
+            <p>Internet ha democratizzato l'informazione. Dove una volta solo i media tradizionali potevano controllare la narrativa, oggi chiunque può condividere la verità. Esempi:</p>
+            <ul>
+                <li>Movimenti come Me Too hanno guadagnato slancio attraverso social media</li>
+                <li>I cittadini hanno documentato abusi di potere poliziesco ed hanno visto responsabilità</li>
+                <li>Attivisti hanno organizzato proteste globali contro il cambiamento climatico</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>⚠️ Il Lato Oscuro</h4>
+                <p>Tuttavia, internet è stato anche usato per: manipolazione elettorale, diffusione di disinformazione coordinata, organizzazione di movimenti estremisti, e amplificazione di discorsi d'odio. La cittadinanza digitale significa riconoscere entrambi i lati.</p>
+            </div>
+
+            <h2>L'Educazione Civica Digitale</h2>
+            <p>Per essere un vero cittadino digitale, dovete:</p>
+            <ul>
+                <li>✅ Comprendere i vostri diritti e doveri online</li>
+                <li>✅ Imparare come la tecnologia funziona (almeno i concetti base)</li>
+                <li>✅ Sviluppare pensiero critico nei confronti dell'informazione</li>
+                <li>✅ Capire l'impatto delle vostre azioni sulla comunità</li>
+                <li>✅ Sostenere l'inclusione e l'accessibilità online</li>
+                <li>✅ Restare informati sulle leggi che proteggono i diritti digitali</li>
+            </ul>
+
+            <h2>Il Codice di Condotta del Cittadino Digitale</h2>
+            <ol>
+                <li><strong>Verifico prima di condividere</strong> – Non diffondo bugie, intenzionalmente o no</li>
+                <li><strong>Rispetto la privacy altrui</strong> – Come voglio che la mia sia rispettata</li>
+                <li><strong>Comunico con empatia</strong> – Non dimentico che ci sono persone reali dall'altra parte</li>
+                <li><strong>Attuo proteste civili</strong> – Se non sono d'accordo, lo esprimo rispettosamente</li>
+                <li><strong>Segnalo gli abusi</strong> – Non resto silenzioso di fronte all'ingiustizia</li>
+                <li><strong>Continuo a imparare</strong> – Il mondo digitale è in costante evoluzione</li>
+                <li><strong>Promuovo l'inclusione</strong> – Assicuro che tutti possano partecipare</li>
+            </ol>
+
+            <h2>Conclusione: La Cittadinanza del Futuro</h2>
+            <p>La cittadinanza digitale non è più una cosa esterna o futuristica – è il presente. Come cittadini digitali, abbiamo il potere di plasmare il futuro di internet. Possiamo scegliere di creare uno spazio di connessione, apprendimento, sicurezza e inclusione. O possiamo fare scelte che alimentano la divisione, la discriminazione e l'odio.</p>
+            
+            <p>La scelta è vostra. E i vostri diritti dipendono dal fatto che gli altri esercitino i loro doveri, proprio come i doveri che voi esercitate proteggono i diritti altrui. Una comunità digitale solida è costruita sulla reciprocità, il rispetto e la consapevolezza che le nostre azioni online hanno conseguenze reali.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

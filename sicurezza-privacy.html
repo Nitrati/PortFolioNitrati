@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sicurezza e Privacy — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Sicurezza e Privacy · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-shield-halved"></i> Sicurezza e Privacy
+            </span>
+            <h1 class="article-title">Sicurezza e Privacy nel Mondo Digitale</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Introduzione: Un Diritto Fondamentale</h2>
+            <p>La sicurezza dei dati personali e la privacy rappresentano due pilastri fondamentali della società digitale contemporanea. In un'era dove ogni azione online genera tracce digitali, sapere come proteggere i propri dati e comprendere i diritti di cui disponiamo è essenziale per essere cittadini consapevoli.</p>
+            
+            <h2>Cosa Significa Privacy nel Contesto Digitale?</h2>
+            <p>La privacy digitale va oltre il semplice concetto tradizionale di privacy. Comprende il diritto di:</p>
+            <ul>
+                <li>Controllare quali informazioni personali condividiamo online</li>
+                <li>Sapere come i nostri dati vengono utilizzati da terzi</li>
+                <li>Accedere, modificare o cancellare i nostri dati quando opportuno</li>
+                <li>Mantener il controllo sulla nostra identità digitale</li>
+                <li>Comunicare senza essere monitarati ingiustificatamente</li>
+            </ul>
+
+            <h2>I Rischi della Mancanza di Sicurezza</h2>
+            <p>Quando la privacy è violata, gli effetti possono essere devastanti:</p>
+            
+            <h3>Furto di Identità</h3>
+            <p>I criminali possono utilizzare i nostri dati personali per aprire conti bancari, richiedere prestiti o effettuare acquisti fraudolenti. Il recupero da un furto d'identità può richiedere mesi o anni.</p>
+            
+            <h3>Sextorsion e Ricatto</h3>
+            <p>Immagini o video intimi, se si diffondono online, possono essere utilizzati come strumento di ricatto. Questo fenomeno è particolarmente grave tra i giovani.</p>
+            
+            <h3>Stalking e Molestie Online</h3>
+            <p>Le informazioni personali pubblicate online possono essere utilizzate per tracciare, harrassare o minacciare un individuo.</p>
+
+            <div class="highlight-box">
+                <h4>💡 Un Dato Importante</h4>
+                <p>Secondo un rapporto del World Economic Forum, le violazioni di dati aumentano del 30% ogni anno globalmente. Una media di 4.145 violazioni di dati sono state registrate nel 2021 negli Stati Uniti soli.</p>
+            </div>
+
+            <h2>Principi Fondamentali della Sicurezza Digitale</h2>
+            
+            <h3>1. Password Robuste</h3>
+            <p>Una buona password deve essere:</p>
+            <ul>
+                <li>Lunga almeno 12 caratteri</li>
+                <li>Composta da lettere maiuscole, minuscole, numeri e caratteri speciali</li>
+                <li>Univoca per ogni piattaforma</li>
+                <li>Memorizzata in un gestore di password affidabile</li>
+            </ul>
+
+            <h3>2. Autenticazione a Due Fattori (2FA)</h3>
+            <p>L'autenticazione a due fattori aggiunge un livello extra di protezione. Anche se qualcuno scopre la vostra password, non può accedere all'account senza il secondo fattore, che potrebbe essere:</p>
+            <ul>
+                <li>Un codice SMS</li>
+                <li>Un'app di autenticazione come Google Authenticator</li>
+                <li>Un'impronta biometrica</li>
+                <li>Una chiave di sicurezza fisica</li>
+            </ul>
+
+            <h3>3. Aggiornamenti Regolari</h3>
+            <p>Gli aggiornamenti del software chiudono vulnerabilità di sicurezza scoperte dai ricercatori. Ignorare gli aggiornamenti lascia il dispositivo esposto a exploit noti.</p>
+
+            <h2>Protezione dei Dati Personali Online</h2>
+            
+            <h3>Social Media: Cosa Non Deve Mai Essere Pubblico</h3>
+            <p>Non condividete mai pubblicamente:</p>
+            <ul>
+                <li>Il vostro numero di telefono completo</li>
+                <li>L'indirizzo di casa</li>
+                <li>Date di nascita esatte</li>
+                <li>Informazioni finanziarie</li>
+                <li>Immagini sensibili o ubication in tempo reale</li>
+            </ul>
+
+            <h3>Privacy Settings nei Social Media</h3>
+            <p>Controllate regolarmente i vostri settaggi di privacy su piattaforme come Instagram, Facebook, TikTok e Twitter. Limitate chi può vedere i vostri post, chi può contattarvi e quali informazioni sono pubblicamente disponibili.</p>
+
+            <h2>Navigazione Sicura sul Web</h2>
+            
+            <h3>Riconoscere i Siti Sicuri</h3>
+            <p>Cercate il lucchetto (🔒) nella barra degli indirizzi e l'URL che inizia con "https://" invece di "http://". Questo indica una connessione crittografata.</p>
+            
+            <h3>Phishing: Come Riconoscerlo e Evitarlo</h3>
+            <p>Il phishing è un attacco dove i criminali si fingono entità affidabili per far cliccare link maligni o far scaricare malware. Segni di allerta includono:</p>
+            <ul>
+                <li>Email da "banche" che chiedono password o PIN</li>
+                <li>URL che sembrano legittimi ma sono leggermente diversi (es: g00gle.com)</li>
+                <li>Pressione urgenza artificiale ("Agisca subito! Il suo conto è compromesso")</li>
+                <li>Errori di grammatica e ortografia</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>⚠️ Regola d'Oro</h4>
+                <p>Nessuna organizzazione legittima chiederà mai password, PIN o altri dati sensibili via email. Se ricevete una richiesta simile, contattate direttamente l'organizzazione tramite un numero di telefono che trovate indipendentemente.</p>
+            </div>
+
+            <h2>Criptografia: La Prima Linea di Difesa</h2>
+            <p>La crittografia è il processo di convertire informazioni leggibili in un codice illeggibile senza la chiave corretta. Ci protegge in tre modi principali:</p>
+            
+            <h3>Crittografia dei Trasporti</h3>
+            <p>HTTPS crittografa i dati mentre viaggiano tra il vostro dispositivo e il server. Previene che i professionisti della rete intercettino le vostre comunicazioni.</p>
+            
+            <h3>Crittografia End-to-End</h3>
+            <p>Applicazioni come WhatsApp e Signal utilizzano la crittografia end-to-end, dove solo voi e il destinatario potete leggere i messaggi. Anche i fornitori del servizio non possono accedere.</p>
+            
+            <h3>Crittografia Full Disk</h3>
+            <p>BitLocker (Windows) e FileVault (Mac) crittografano l'intero disco rigido, proteggendo i dati anche se il dispositivo viene rubato.</p>
+
+            <h2>Diritti e Doveri nella Protezione dei Dati</h2>
+            
+            <h3>Il Diritto di Sapere</h3>
+            <p>Avete diritto di chiedere a qualsiasi organizzazione quali dati possiede su di voi e come li utilizza. In Italia, il GDPR vi consente di fare questo gratuitamente.</p>
+            
+            <h3>Il Diritto di Essere Dimenticati</h3>
+            <p>In alcune circostanze, potete chiedere che i vostri dati non pertinenti, eccessivi o ottenuti illegalmente siano cancellati ("diritto all'oblio").</p>
+            
+            <h3>Il Dovere di Proteggere i Dati Altrui</h3>
+            <p>Se condividete informazioni di altri online, avete il dovere di proteggere la loro privacy con la stessa serietà con cui proteggete la vostra.</p>
+
+            <h2>Consigli Pratici e Giornalieri</h2>
+            <ul>
+                <li>✅ Utilizzate un gestore di password come Bitwarden, 1Password o LastPass</li>
+                <li>✅ Abilitate 2FA su tutti gli account importanti</li>
+                <li>✅ Controllate regolarmente i vostri estratti bancari</li>
+                <li>✅ Use una VPN su reti Wi-Fi pubbliche</li>
+                <li>✅ Leggete le politiche di privacy prima di registrarvi a nuovi servizi</li>
+                <li>✅ Fate attenzione ai simboli di sicurezza nelle email</li>
+                <li>❌ Non condividete screenshot di messaggi privati</li>
+                <li>❌ Non riutilizzate password su diversi siti</li>
+                <li>❌ Non ignorate i messaggi di avvertimento di sicurezza</li>
+            </ul>
+
+            <h2>Conclusione: Responsabilità Condivisa</h2>
+            <p>La sicurezza e la privacy nel mondo digitale non sono solo responsabilità delle corporazioni big tech. Sono una responsabilità condivisa tra governi, aziende, educatori e individui. Come cittadini digitali, possiamo:</p>
+            <ul>
+                <li>Educarci continuamente sulle migliori pratiche di sicurezza</li>
+                <li>Protegger i nostri dati e quelli degli altri</li>
+                <li>Sostener leggi che proteggono la privacy</li>
+                <li>Utilizzare le nostre voci per chiedere trasparenza alle aziende</li>
+            </ul>
+            
+            <p>Ricordate: la privacy è un diritto umano fondamentale, non un privilegio. In un mondo sempre più connesso, proteggere questa privacy è un atto di autodeterminazione e dignità personale.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

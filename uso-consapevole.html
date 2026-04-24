@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uso Consapevole di Internet — Educazione Civica">
+    <meta name="author" content="Matteo Nitrati">
+    <title>Uso Consapevole di Internet · Educazione Civica</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236C63FF'/%3E%3Ctext x='50' y='67' font-size='50' text-anchor='middle' fill='white' font-weight='bold'%3EMN%3C/text%3E%3C/svg%3E">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5a52e0;
+            --primary-light: #8B85FF;
+            --secondary: #FF6584;
+            --dark: #1A1F36;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+            color: var(--dark);
+            line-height: 1.8;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-link {
+            border-radius: 100px;
+            padding: 0.6rem 1.4rem !important;
+            margin: 0 4px;
+            font-weight: 500;
+            color: var(--gray) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white !important;
+        }
+
+        .article-section {
+            padding: 80px 0 60px;
+            margin-top: 60px;
+        }
+
+        .article-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .article-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--dark), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .article-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(108, 99, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            border: 1px solid rgba(108, 99, 255, 0.2);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            border: 1px solid rgba(108, 99, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid rgba(108, 99, 255, 0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .article-content p {
+            margin-bottom: 1.2rem;
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1.5rem;
+            margin-left: 1.5rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.8rem;
+            color: var(--gray);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.08), rgba(139, 133, 255, 0.06));
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+        }
+
+        .footer-modern {
+            background: rgba(255, 255, 255, 0.95);
+            border-top: 1px solid rgba(108, 99, 255, 0.1);
+            padding: 3rem 0 2rem;
+            margin-top: 60px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(108, 99, 255, 0.08);
+            padding: 12px 28px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <div style="width: 45px; height: 45px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 25px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; box-shadow: 0 10px 20px -5px rgba(108, 99, 255, 0.3);">
+                <i class="fas fa-compass"></i>
+            </div>
+            <span>Matteo Nitrati</span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-radius: 12px; border: none; background: rgba(108, 99, 255, 0.1);">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="educazionecivica.html">
+                        <i class="fas fa-balance-scale"></i> Torna ai temi
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="article-section">
+    <div class="container">
+        <a class="back-link" href="educazionecivica.html">
+            <i class="fas fa-arrow-left"></i> Torna ai temi
+        </a>
+
+        <div class="article-header">
+            <span class="article-badge">
+                <i class="fas fa-network-wired"></i> Uso Consapevole di Internet
+            </span>
+            <h1 class="article-title">Consapevolezza e Responsabilità Online</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> 2025</span>
+                <span><i class="fas fa-user"></i> Matteo Nitrati</span>
+                <span><i class="fas fa-book"></i> Educazione Civica</span>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <h2>Introduzione: Internet come Responsabilità</h2>
+            <p>Internet rappresenta una rivoluzione straordinaria: accesso istantaneo a miliardi di informazioni, connessione globale e opportunità illimitate. Tuttavia, con questi poteri straordinari viene una responsabilità altrettanto grande. Usare internet consapevolmente significa prendersi carico delle conseguenze delle nostre azioni online e comprendere come le nostre scelte digitali influiscono su noi stessi e sulla comunità globale.</p>
+            
+            <h2>I Pilastri dell'Uso Consapevole</h2>
+            
+            <h3>1. Consapevolezza dei Contenuti</h3>
+            <p>Ogni contenuto online proviene da qualcuno con un'intenzione. Prima di condividere, commentare o credere a ciò che leggete, chiedetevi:</p>
+            <ul>
+                <li>Chi ha creato questo contenuto e perché?</li>
+                <li>Quale è lo scopo? Informare, vendere, manipolare, intrattenere?</li>
+                <li>Che prove supportano questa affermazione?</li>
+                <li>Ci sono bias o conflitti di interesse?</li>
+                <li>Fonti affidabili confermano questa informazione?</li>
+            </ul>
+
+            <h3>2. Gestione del Tempo Online</h3>
+            <p>Il "screen time" affettuoso – il tempo che trascorriamo su dispositivi – ha conseguenze reali sulla nostra salute mentale e fisica:</p>
+            <ul>
+                <li><strong>Problemi di sonno:</strong> La luce blu dai schermi può interferire con la produzione di melatonina</li>
+                <li><strong>Ansia e depressione:</strong> Il confronto sociale su social media può diminuire l'autostima</li>
+                <li><strong>Dipendenza:</strong> Gli algoritmi sono progettati per essere "addictive" – mantenervi connessi il più possibile</li>
+                <li><strong>Ridotta concentrazione:</strong> Il multitasking online diminuisce la capacità di focus profondo</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>💡 Ricerca Scientifica</h4>
+                <p>Uno studio del Pew Research Center ha trovato che i ragazzi che usano social media "quasi costantemente" hanno il doppio di probabilità di segnalare sintomi di depressione grave rispetto a quelli che lo usano meno frequentemente.</p>
+            </div>
+
+            <h2>Valutazione Critica delle Fonti</h2>
+            
+            <h3>Come Riconoscere le Fake News</h3>
+            <p>Le fake news (notizie false) si diffondono più velocemente delle notizie vere. Ecco come identificarle:</p>
+            
+            <h3>Bandiere Rosse</h3>
+            <ul>
+                <li>📌 Titoli sensazionalistici o esagerati ("SCOOP: La cosa più scioccante accaduta oggi!")</li>
+                <li>📌 Mancanza di byline chiar o data di pubblicazione</li>
+                <li>📌 Nessun link a fonti originali</li>
+                <li>📌 Grammatica terribile e errori di ortografia</li>
+                <li>📌 Immagini senza contesto o immagini d'archivio usate fuori contesto</li>
+                <li>📌 Nessun nome di autore o URL sospetto</li>
+                <li>📌 Richieste di cliccare per "sapere di più" (clickbait)</li>
+            </ul>
+
+            <h3>Come Fact-Checkare</h3>
+            <p>Quando trovate un'affermazione dubbia:</p>
+            <ol>
+                <li>Cercate la stessa notizia su più fonti di notizie rispettabili</li>
+                <li>Visitate siti di fact-checking professionale come Snopes, FactCheck.org, PolitiFact</li>
+                <li>Verificate le credenziali dell'autore</li>
+                <li>Cercate studi scientifici che supportano o confutano il claim</li>
+                <li>Note la data – le informazioni vecchie potrebbero non essere più rilevanti</li>
+            </ol>
+
+            <h2>Rispetto Digitale: La Netiquette Moderna</h2>
+            
+            <h3>Cosa Significa?</h3>
+            <p>La "netiquette" (etichetta internet) descrive le regole non scritte per la comunicazione civile online. Sebbene ci sia l'anonimato, le ricadute delle nostre parole rimangono.</p>
+            
+            <h3>Regole Fondamentali</h3>
+            <ul>
+                <li>Leggete due volte prima di inviare</li>
+                <li>Cercate di capire il contesto prima di giudicare</li>
+                <li>Evitate la SCRITTURA IN MAIUSCOLO (è considerato "urlare")</li>
+                <li>Non condividete informazioni personali di altri senza il loro permesso</li>
+                <li>Rispondete ai commenti con educazione anche a chi non è d'accordo</li>
+                <li>Non attaccate un'intera persona per un'opinione – attaccate l'opinione stessa</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>⚠️ Le Parole Hanno Peso</h4>
+                <p>Le ricerche mostrano che il cyberbullismo ha effetti psicologici così gravi quanto il bullismo fisico, a volte ancora più pericolosi perché gli insulti rimangono online permanentemente e possono raggiungere immediatamente milioni di persone.</p>
+            </div>
+
+            <h2>Protezione della Identità Online</h2>
+            
+            <h3>Digital Footprint – Le Vostre Tracce Online</h3>
+            <p>Tutto ciò che fate online lascia una traccia. I datori di lavoro, le università e persino gli estranei possono scoprire:</p>
+            <ul>
+                <li>Post e commenti che avete fatto anni fa</li>
+                <li>Foto in cui siete stati taggati</li>
+                <li>I vostri gusti e preferenze</li>
+                <li>Chi sono i vostri amici e familiari</li>
+                <li>Le vostre abitudini e routine quotidiana</li>
+            </ul>
+
+            <h3>Strategie di Protezione</h3>
+            <ul>
+                <li>✅ Limitato chi può vedere i vostri post (usate privacy settings)</li>
+                <li>✅ Regolarmente cercate il vostro nome su Google</li>
+                <li>✅ Pensate a lungo termine – quella foto potrebbe tornare a perseguitarvi</li>
+                <li>✅ Non taggare posizioni in tempo reale</li>
+                <li>✅ Usate profili privati su app sensibili (come dating apps)</li>
+                <li>❌ Non fidatevi che i vostri follower siano 100% amici</li>
+            </ul>
+
+            <h2>Internet e Salute Mentale</h2>
+            
+            <h3>Il Trap del Perfezionismo Social</h3>
+            <p>I social media mostrano principalmente i momenti migliori della vita di persone. Questo crea una distorsione della realtà dove:</p>
+            <ul>
+                <li>Pensiamo che la vita degli altri sia più felice della nostra</li>
+                <li>Compariamo i nostri dietro-le-quinte con la loro versione "highlights reel"</li>
+                <li>Cerchiamo validazione attraverso "like" e commenti</li>
+                <li>Sentiamo una pressione costante di documentare la nostra vita</li>
+            </ul>
+
+            <h3>Gestione Consapevole</h3>
+            <p>Per mantenere una relazione salubre con internet:</p>
+            <ul>
+                <li>Praticate "social media cleanses" – prendi una settimana senza</li>
+                <li>Seguite account che vi inspirano, non che vi deprimono</li>
+                <li>Disattivate le notifiche push – controllar il telefono, non il contrario</li>
+                <li>Trovate hobbies offline che vi portano gioia</li>
+                <li>Parlate con qualcuno se sentite depressione o ansia legata all'uso online</li>
+            </ul>
+
+            <h2>Responsabilità Civica Online</h2>
+            
+            <h3>La Forza della Comunità Online</h3>
+            <p>Internet non è solo individuale – è collettivo. Le nostre azioni influenzano il comportamento e il clima online. Possiamo:</p>
+            <ul>
+                <li>Chiamare il bullismo quando lo vediamo, anche anonimamente</li>
+                <li>Amplificare voci marginalizzate e sottorappresentate</li>
+                <li>Educare gli altri (gentilmente) quando diffondono disinformazione</li>
+                <li>Supportare movements che placcano l'accessibilità online per tutti</li>
+                <li>Non perpetuare stereotipi anche "scherzosamente"</li>
+            </ul>
+
+            <h2>Regole Pratiche per Uso Consapevole</h2>
+            <ul>
+                <li>🔍 Prima di condividere, chiedetevi: è vero? È utile? È gentile?</li>
+                <li>⏰ Fissate limiti di tempo: non scrollate prima di dormire</li>
+                <li>🔐 Proteggervi: password robuste, privacy settings, 2FA</li>
+                <li>📚 Leggervi almeno 5 secondi in più prima di credere</li>
+                <li>💬 Comunicate con empatia – il destinatario è un umano reale</li>
+                <li>🚫 Non condividete dettagli personali di altri</li>
+                <li>🧠 Osservate il vostro stato mentale – prendete pause se necessario</li>
+                <li>🤝 Sostenete chi è vittima di abusi online</li>
+            </ul>
+
+            <h2>Conclusione: Un Internet Migliore Inizia Comunque</h2>
+            <p>L'uso consapevole di internet non significa abbandonare la tecnologia o vivere offline. Significa essere intenzionali sulle nostre scelte, criticamente pensare, trattare gli altri con dignità e proteggere noi stessi.</p>
+            
+            <p>Ogni volta che scegliamo di fact-checkare prima di condividere, di commentare con empatia, di proteggere la privacy di qualcuno, o di staccarci quando necessitiamo una pausa, contribuiamo a un internet più salubre e più giusto. E questo inizia con voi.</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-modern">
+    <div class="container text-center">
+        <p class="mb-2 fw-semibold">© 2026 Matteo Nitrati · Tutti i diritti riservati</p>
+        <p class="text-muted mb-0">
+            <i class="fas fa-leaf text-primary"></i> Educazione Civica & Cittadinanza Digitale
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
