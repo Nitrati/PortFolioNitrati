@@ -1,40 +1,63 @@
 <?php
-//metodi.php
-//pagina nella quale ci saranno i metodi da richiamare per operazioni di inserimento, modifica ed elimina.
+// metodi.php
+// Pagina nella quale ci sono i metodi da richiamare per operazioni di CRUD su JSON
 
-//1) inserimento contenuto (autobiografia, educazione civica, professionale) da parte dell'amministratore
+$dataFile = __DIR__ . '/data.json';
+
+// Inizializza il file JSON se non esiste
+function initDataFile() {
+    global $dataFile;
+    if (!file_exists($dataFile)) {
+        file_put_contents($dataFile, json_encode([]));
+    }
+}
+
+// Ottieni tutti i contenuti
+function getContents() {
+    global $dataFile;
+    initDataFile();
+    $json = file_get_contents($dataFile);
+    return json_decode($json, true) ?: [];
+}
+
+// Salva i contenuti nel JSON
+function saveContents($data) {
+    global $dataFile;
+    file_put_contents($dataFile, json_encode($data, JSON_PRETTY_PRINT));
+}
+
+// 1) Inserimento contenuto
 function insertContent($section, $content) {
-    // Qui dovresti implementare la logica per inserire il contenuto nel database
-    // Ad esempio, potresti usare PDO per eseguire una query SQL di inserimento
-    // Esempio:
-    /*
-    $pdo = new PDO('mysql:host=localhost;dbname=tuo_database', 'username', 'password');
-    $stmt = $pdo->prepare("INSERT INTO contenuti (section, content) VALUES (:section, :content)");
-    $stmt->execute(['section' => $section, 'content' => $content]);
-    */
-}   
-//2) modifica contenuto esistente da parte dell'amministratore
+    $data = getContents();
+    $newId = time(); // Usa timestamp come ID univoco semplice
+    $data[] = [
+        'id' => $newId,
+        'section' => $section,
+        'content' => $content
+    ];
+    saveContents($data);
+}
+
+// 2) Modifica contenuto esistente
 function updateContent($id, $section, $content) {
-    // Qui dovresti implementare la logica per aggiornare il contenuto nel database
-    // Ad esempio, potresti usare PDO per eseguire una query SQL di aggiornamento
-    // Esempio:
-    /*
-    $pdo = new PDO('mysql:host=localhost;dbname=tuo_database', 'username', 'password');
-    $stmt = $pdo->prepare("UPDATE contenuti SET section = :section, content = :content WHERE id = :id");
-    $stmt->execute(['id' => $id, 'section' => $section, 'content' => $content]);
-    */
+    $data = getContents();
+    foreach ($data as &$item) {
+        if ($item['id'] == $id) {
+            $item['section'] = $section;
+            $item['content'] = $content;
+            break;
+        }
+    }
+    saveContents($data);
 }
-//3) cancellazione contenuto da parte dell'amministratore
+
+// 3) Cancellazione contenuto
 function deleteContent($id) {
-    // Qui dovresti implementare la logica per cancellare il contenuto dal database
-    // Ad esempio, potresti usare PDO per eseguire una query SQL di cancellazione
-    // Esempio:
-    /*
-    $pdo = new PDO('mysql:host=localhost;dbname=tuo_database', 'username', 'password');
-    $stmt = $pdo->prepare("DELETE FROM contenuti WHERE id = :id");
-    $stmt->execute(['id' => $id]);
-    */
+    $data = getContents();
+    $data = array_filter($data, function($item) use ($id) {
+        return $item['id'] != $id; // Filtra via l'elemento con l'ID da cancellare
+    });
+    // Re-indicizza l'array dopo array_filter e salva
+    saveContents(array_values($data));
 }
-
-
 ?>

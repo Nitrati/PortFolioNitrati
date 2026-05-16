@@ -1,43 +1,22 @@
 <?php
-//15/04/2026
-// login.php
-// Questo file gestisce il login dell'amministratore. In una produzione reale, dovresti utilizzare un database per memorizzare le credenziali e implementare misure di sicurezza adeguate (hashing delle password, protezione contro SQL injection, ecc.).
-include_once("php/metodi.php"); // Includi il file con i metodi CRUD per la gestione dei contenuti
 session_start();
+
+$validUsername = 'admin';
+$validPassword = 'password123';
+$error = '';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
 
-    // Dati di accesso hardcoded (da sostituire con un database in produzione)
-    $validUsername = 'admin';
-    $validPassword = 'password123';
-
     if ($username === $validUsername && $password === $validPassword) {
         $_SESSION['logged_in'] = true;
-        header('Location: admin.php'); // Reindirizza alla pagina admin
+        header('Location: admin.php');
         exit();
     } else {
-        echo 'Credenziali non valide. Riprova.';
+        $error = 'Credenziali non valide. Riprova.';
     }
 }
-//metodi crud per inserimento, modifica, cancellazione dei contenuti da parte dell'amministratore all'interno del sito
-if(isset($_POST['action']))
-    {
-        $action = $_POST['action'];
-        switch($action) {
-            case 'insert':
-                insertContent($section, $content);
-                break;
-            case 'update':
-                updateContent($id, $section, $content);
-                break;
-            case 'delete':
-                deleteContent($id);
-                break;
-            default:
-                echo 'Azione non valida.';
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -53,45 +32,81 @@ if(isset($_POST['action']))
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+            margin: 0;
         }
         .login-container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
         }
         .login-container h2 {
+            margin-top: 0;
             margin-bottom: 20px;
+            text-align: center;
+            color: #333;
         }
         .login-container input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 12px;
+            margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
         }
         .login-container button {
             width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
+            padding: 12px;
+            background-color: #4f7eff;
             color: #fff;
             border: none;
-            border-radius: 3px;
+            border-radius: 4px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
         .login-container button:hover {
-            background-color: #0056b3;
+            background-color: #3a65db;
+        }
+        .error-message {
+            color: #d9534f;
+            background-color: #f2dede;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .back-link:hover {
+            color: #333;
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>Login Admin</h2>
+        <h2>Area Amministratore</h2>
+        <?php if ($error): ?>
+            <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
+        <?php endif; ?>
         <form method="POST">
             <input type="text" name="username" placeholder="Username" required>
             <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+            <button type="submit">Accedi</button>
         </form>
+        <a href="../index.html" class="back-link">Torna al sito</a>
     </div>
 </body>
 </html>
