@@ -1184,6 +1184,9 @@
         window.addEventListener('hashchange', () => {
             if (location.hash) showSection(location.hash.substring(1));
         });
+        // Legge anche il pathname (es. /extra → mostra #extra)
+        const pathId = location.pathname.replace('/', '');
+        if (pathId) showSection(pathId);
     </script>
 </body>
 
