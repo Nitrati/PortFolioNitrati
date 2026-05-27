@@ -818,7 +818,7 @@
 
     <main>
         <!-- ── AUTOBIOGRAFIA ── -->
-        <section id="autobiografia" class="screen active">
+        <section id="#autobiografia" class="screen active">
             <div class="section-label">01 — chi sono</div>
             <h2>Autobiografia</h2>
 
@@ -890,7 +890,7 @@
         </section>
 
         <!-- ── SCUOLA ── -->
-        <section id="scuola" class="screen">
+        <section id="#scuola" class="screen">
             <div class="section-label">02 — percorso formativo</div>
             <h2>Scuola · le radici</h2>
 
@@ -1004,7 +1004,7 @@
         </section>
 
         <!--EXTRA SCUOLA -->
-        <section id="extra" class="screen" style="margin-bottom:0;">
+        <section id="#extra" class="screen" style="margin-bottom:0;">
           <div class="section-label">05 — attività extrascolastiche</div>
           <h2>Attività extrascolastiche</h2>
           <!-- protezione civile -->
@@ -1091,7 +1091,7 @@
 
         </section>  
         <!-- ── PROFESSIONALE ── -->
-        <section id="professionale" class="screen">
+        <section id="#professionale" class="screen">
             <div class="section-label">04 — il mio futuro</div>
             <h2>Area professionale</h2>
 
@@ -1178,13 +1178,13 @@
     <!-- script in java per i link di condivisione -->
     <script>
         'use strict';
-
+        // Imposta la data di aggiornamento dinamicamente
         document.getElementById('updateDate').textContent =
             new Date().toLocaleDateString('it-IT', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
         const shareBtn = document.getElementById('shareLinkBtn');
         const feedbackSpan = document.getElementById('linkFeedback');
-
+        // Funzione per copiare il testo negli appunti, con supporto per fallback
         function copyToClipboard(text) {
             if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
             return new Promise((resolve, reject) => {
@@ -1198,7 +1198,7 @@
                 finally { ta.remove(); }
             });
         }
-
+        // Gestisce il click sul pulsante di condivisione
         shareBtn.addEventListener('click', () => {
             copyToClipboard(location.href).then(() => {
                 feedbackSpan.style.display = 'inline';
@@ -1209,15 +1209,15 @@
                 }, 2500);
             });
         });
-
+        // Gestisce la navigazione tra le sezioni basata su hash e pathname
         const screens = document.querySelectorAll('.screen');
-
+        // Funzione per mostrare la sezione corrispondente all'ID
         function showSection(id) {
             screens.forEach(s => {
                 s.classList.toggle('active', s.id === id);
             });
         }
-
+        // Gestisce i click sui link di navigazione
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', e => {
                 const href = link.getAttribute('href');
@@ -1229,7 +1229,7 @@
                 }
             });
         });
-
+        // Mostra la sezione iniziale basata sull'hash o sul pathname
         if (location.hash) showSection(location.hash.substring(1));
 
         window.addEventListener('hashchange', () => {
@@ -1239,15 +1239,7 @@
         const pathId = location.pathname.replace('/', '');
         if (pathId) showSection(pathId);
     </script>
-    <!-- script in java per la gestione dell'insrimento di dati, non da codice ma da interfaccia grafica) -->
-     <!-- <script>
-        // Esempio di gestione di un form di login (da implementare in login.php)
-        document.getElementById('loginBtn').addEventListener('click', () => {
-            // Qui si potrebbe aprire un modal o reindirizzare a una pagina di login
-            // Per ora, reindirizziamo semplicemente a login.php
-            window.location.href = './php/login.php';
-        });
-    </script> -->
+
 </body>
 
 </html>
