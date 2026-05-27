@@ -1230,14 +1230,26 @@
             });
         });
         // Mostra la sezione iniziale basata sull'hash o sul pathname
-        if (location.hash) showSection(location.hash.substring(1));
+        const initialHash = location.hash ? location.hash.substring(1) : '';
+        const rawPath = location.pathname.split('/').pop();
+        const pathId = rawPath && rawPath !== 'index.html' && rawPath !== 'index' ? rawPath : '';
+        const initialSectionId = initialHash || pathId;
+
+        if (initialSectionId && document.getElementById(initialSectionId)) {
+            showSection(initialSectionId);
+            if (!location.hash) {
+                history.replaceState(null, null, '#' + initialSectionId);
+            }
+        } else {
+            showSection('autobiografia');
+            if (location.hash !== '#autobiografia') {
+                history.replaceState(null, null, '#autobiografia');
+            }
+        }
 
         window.addEventListener('hashchange', () => {
             if (location.hash) showSection(location.hash.substring(1));
         });
-        // Legge anche il pathname (es. /extra → mostra #extra)
-        const pathId = location.pathname.replace('/', '');
-        if (pathId) showSection(pathId);
     </script>
 
 </body>
