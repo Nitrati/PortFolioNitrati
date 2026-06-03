@@ -24,25 +24,25 @@
             box-sizing: border-box;
         }
 
-        /* ── FORZA TEMA SCURO SEMPRE ── */
+        /* ── TEMA CHIARO ── */
         :root {
-            color-scheme: dark;
-            --bg: #0a0e1a;
-            --bg2: #0f1526;
-            --bg3: #151c32;
-            --surface: #1a2240;
-            --surface2: #202948;
-            --border: rgba(100, 140, 255, 0.12);
-            --border-glow: rgba(100, 140, 255, 0.3);
+            color-scheme: light;
+            --bg: #f8fbff;
+            --bg2: #ffffff;
+            --bg3: #eef3ff;
+            --surface: #f2f6ff;
+            --surface2: #e7ecf8;
+            --border: rgba(16, 33, 64, 0.08);
+            --border-glow: rgba(51, 102, 255, 0.15);
             --accent: #4f7eff;
             --accent2: #7c9fff;
-            --accent-soft: rgba(79, 126, 255, 0.12);
+            --accent-soft: rgba(79, 126, 255, 0.14);
             --accent-mid: rgba(79, 126, 255, 0.25);
-            --text: #e8eaf2;
-            --text-muted: #7a85a8;
-            --text-dim: #4a5478;
-            --teal: #00d4aa;
-            --teal-soft: rgba(0, 212, 170, 0.12);
+            --text: #102140;
+            --text-muted: #57627b;
+            --text-dim: #6d7c96;
+            --teal: #0b9e88;
+            --teal-soft: rgba(11, 158, 136, 0.10);
             --radius-sm: 12px;
             --radius-md: 20px;
             --radius-lg: 32px;
@@ -52,32 +52,32 @@
         }
 
         /* ── OVERRIDE COMPLETO: ignora preferenza sistema ── */
-        @media (prefers-color-scheme: light) {
+        @media (prefers-color-scheme: dark) {
             :root {
-                color-scheme: dark;
-                --bg: #0a0e1a;
-                --bg2: #0f1526;
-                --bg3: #151c32;
-                --surface: #1a2240;
-                --surface2: #202948;
-                --border: rgba(100, 140, 255, 0.12);
-                --border-glow: rgba(100, 140, 255, 0.3);
+                color-scheme: light;
+                --bg: #f8fbff;
+                --bg2: #ffffff;
+                --bg3: #eef3ff;
+                --surface: #f2f6ff;
+                --surface2: #e7ecf8;
+                --border: rgba(16, 33, 64, 0.08);
+                --border-glow: rgba(51, 102, 255, 0.15);
                 --accent: #4f7eff;
                 --accent2: #7c9fff;
-                --accent-soft: rgba(79, 126, 255, 0.12);
+                --accent-soft: rgba(79, 126, 255, 0.14);
                 --accent-mid: rgba(79, 126, 255, 0.25);
-                --text: #e8eaf2;
-                --text-muted: #7a85a8;
-                --text-dim: #4a5478;
-                --teal: #00d4aa;
-                --teal-soft: rgba(0, 212, 170, 0.12);
+                --text: #102140;
+                --text-muted: #57627b;
+                --text-dim: #6d7c96;
+                --teal: #0b9e88;
+                --teal-soft: rgba(11, 158, 136, 0.10);
             }
         }
 
         html {
             scroll-behavior: smooth;
-            background: #0a0e1a !important;
-            color: #e8eaf2 !important;
+            background: #f8fbff !important;
+            color: #102140 !important;
         }
 
         body {
@@ -143,7 +143,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 14, 26, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);

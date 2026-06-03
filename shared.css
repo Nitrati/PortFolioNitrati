@@ -10,29 +10,29 @@
 
 /* ── DESIGN TOKENS ── */
 :root {
-    --bg-0:  #070b17;
-    --bg-1:  #0b1022;
-    --bg-2:  #0f1529;
-    --bg-3:  #141c34;
-    --bg-4:  #192040;
+    --bg-0:  #f4f7ff;
+    --bg-1:  #ffffff;
+    --bg-2:  #f0f4fb;
+    --bg-3:  #e3eaef;
+    --bg-4:  #d9e1ee;
 
-    --blue:       #5080ff;
-    --blue-soft:  rgba(80, 128, 255, 0.10);
-    --blue-mid:   rgba(80, 128, 255, 0.20);
-    --blue-dim:   rgba(80, 128, 255, 0.06);
-    --teal:       #00d4aa;
-    --teal-soft:  rgba(0, 212, 170, 0.10);
-    --teal-mid:   rgba(0, 212, 170, 0.20);
-    --amber:      #f7c948;
-    --amber-soft: rgba(247, 201, 72, 0.12);
+    --blue:       #3366ff;
+    --blue-soft:  rgba(51, 102, 255, 0.10);
+    --blue-mid:   rgba(51, 102, 255, 0.18);
+    --blue-dim:   rgba(51, 102, 255, 0.06);
+    --teal:       #0b9e88;
+    --teal-soft:  rgba(11, 158, 136, 0.10);
+    --teal-mid:   rgba(11, 158, 136, 0.18);
+    --amber:      #d99f2a;
+    --amber-soft: rgba(217, 159, 42, 0.12);
 
-    --t1: #edf0f9;
-    --t2: #8a94b2;
-    --t3: #48527a;
+    --t1: #102140;
+    --t2: #4d617e;
+    --t3: #6d7c96;
 
-    --b0: rgba(100, 140, 255, 0.08);
-    --b1: rgba(100, 140, 255, 0.16);
-    --b2: rgba(100, 140, 255, 0.30);
+    --b0: rgba(16, 33, 64, 0.08);
+    --b1: rgba(16, 33, 64, 0.12);
+    --b2: rgba(16, 33, 64, 0.06);
 
     --r-xs: 8px;
     --r-sm: 12px;
@@ -85,10 +85,10 @@ header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(7, 11, 23, 0.82);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border-bottom: 1px solid var(--b0);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(16, 33, 64, 0.08);
 }
 
 .header-inner {
